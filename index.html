@@ -1,212 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Benjamin Reinstein – Emergency Dental Care Jerusalem</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title id="page-title">ד״ר בנימין ריינשטיין</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
-    }
+<style>
 
-    header {
-      background: #0aa2ff;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
+/* GLOBAL RESET */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
 
-    h1 { margin: 0; font-size: 2.4rem; }
-    h2 { margin-top: 0; }
+:root {
+  --bg-light: #f4f7ff;
+  --text: #333;
+  --radius: 14px;
+}
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+body {
+  background: var(--bg-light);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+/* TOP BAR */
+.topbar {
+  width: 100vw;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 40px 12px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+}
 
-    .service-box {
-      background: #f7f7f7;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
+.lang-dropdown { position: relative; }
 
-    .button {
-      background: #003cff;
-      color: white;
-      padding: 10px 16px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 10px 5px;
-    }
+.lang-btn {
+  padding: 6px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: white;
+  font-weight: 600;
+}
 
-    .lang-toggle {
-      margin-top: 20px;
-    }
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  z-index: 10;
+}
 
-    #hebrew, #english, #french {
-      display: none;
-    }
+.lang-menu button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
 
-    /* Hebrew RTL */
-    #hebrew {
-      direction: rtl;
-      text-align: right;
-    }
+/* ======= VIDEO BANNER (NO WRAPPERS AROUND IT) ======= */
+header {
+  width: 100vw;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
 
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+header video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    iframe {
-      width: 100%;
-      height: 350px;
-      border: 0;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-  </style>
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
 
-  <script>
-    function showLang(lang) {
-      document.getElementById("english").style.display = (lang === 'en') ? 'block' : 'none';
-      document.getElementById("hebrew").style.display = (lang === 'he') ? 'block' : 'none';
-      document.getElementById("french").style.display = (lang === 'fr') ? 'block' : 'none';
-    }
-  </script>
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 2.6rem;
+}
+
+.header-content .subtitle {
+  margin-top: 12px;
+  font-size: 1.25rem;
+}
+
+/* MAIN CONTENT */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 22px;
+}
+
+.service-box {
+  background: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* RTL support */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+</style>
 </head>
 
-<body onload="showLang('en')">
+<body class="rtl">
 
+<!-- ALWAYS FIRST -->
+<div class="topbar">
+  <div class="lang-dropdown">
+    <button class="lang-btn" onclick="toggleMenu()">HE ▾</button>
+    <div class="lang-menu" id="lang-menu">
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('he')">עברית</button>
+      <button onclick="setLang('fr')">Français</button>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO BANNER CANNOT BE INSIDE ANY OTHER DIV -->
 <header>
-  <h1 id="main-title">Dr. Benjamin Reinstein</h1>
-  <p>Emergency Dental Care – Jerusalem</p>
+  <video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-  <div class="lang-toggle">
-    <a href="#" class="button" onclick="document.getElementById('main-title').innerText='Dr. Benjamin Reinstein'; showLang('en')">English</a>
-    <a href="#" class="button" onclick="document.getElementById('main-title').innerText='ד״ר בנימין ריינשטיין'; showLang('he')">עברית</a>
-    <a href="#" class="button" onclick="document.getElementById('main-title').innerText='Dr Benjamin Reinstein'; showLang('fr')">Français</a>
+  <div class="header-content">
+    <h1 id="title"></h1>
+    <p class="subtitle" id="subtitle"></p>
   </div>
 </header>
 
-<!-- ========================= -->
-<!-- ENGLISH SECTION           -->
-<!-- ========================= -->
-<section id="english">
-  <h2>About the Clinic</h2>
-  <p>
-    Dr. Benjamin Reinstein provides professional and gentle emergency dental care 
-    in Jerusalem. Immediate treatment is available for dental pain, trauma, swelling, 
-    and oral bleeding.
-  </p>
+<!-- CONTENT AFTER BANNER -->
+<div class="container">
+  <h2 id="about-title"></h2>
+  <p id="about-text"></p>
 
-  <h2>Emergency Dental Services</h2>
+  <h2 id="services-title"></h2>
+  <div class="services" id="services-list"></div>
 
-  <div class="services">
-    <div class="service-box"><h3>Tooth Pain</h3><p>Urgent treatment for severe or sudden dental pain.</p></div>
-    <div class="service-box"><h3>Broken / Knocked-Out Tooth</h3><p>Immediate care after dental trauma.</p></div>
-    <div class="service-box"><h3>Swelling</h3><p>Treatment for infections and acute swelling.</p></div>
-    <div class="service-box"><h3>Bleeding</h3><p>Control and treatment of oral bleeding.</p></div>
-    <div class="service-box"><h3>Oral Cuts</h3><p>Soft-tissue injury treatment.</p></div>
-  </div>
+  <h2 id="contact-title"></h2>
+  <p><strong id="phone-label"></strong> 050-000-0000</p>
+  <p><strong id="email-label"></strong> clinic@example.com</p>
 
-  <h2>Contact</h2>
-  <p><strong>Phone:</strong> <a href="tel:+972500000000">050-000-0000</a></p>
-  <p><strong>Email:</strong> <a href="mailto:clinic@example.com">clinic@example.com</a></p>
+  <h2 id="location-title"></h2>
+  <iframe id="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
+</div>
 
-  <h2>Location</h2>
-  <iframe  
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.2462189174803!2d35.215!3d31.778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzQwLjgiTiAzNcKwMTInNTQuMCJF!5e0!3m2!1sen!2sil!4v1234567890"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</section>
-
-<!-- ========================= -->
-<!-- HEBREW SECTION (RTL)      -->
-<!-- ========================= -->
-<section id="hebrew">
-  <h2>על המרפאה</h2>
-  <p>
-    ד״ר בנימין ריינשטיין מספק טיפול חירום מקצועי ועדין בירושלים.
-    מעניק טיפול מיידי לכאבי שיניים, שברים, נפיחות ודימומים בחלל הפה.
-  </p>
-
-  <h2>שירותי חירום</h2>
-
-  <div class="services">
-    <div class="service-box"><h3>כאבי שיניים</h3><p>טיפול מיידי בכאב חד או מתמשך.</p></div>
-    <div class="service-box"><h3>שבר או נפילת שן</h3><p>טיפול לאחר חבלה או טראומה.</p></div>
-    <div class="service-box"><h3>נפיחות</h3><p>טיפול בזיהומים חריפים ונפיחות.</p></div>
-    <div class="service-box"><h3>דימומים</h3><p>עצירת דימום וטיפול דחוף.</p></div>
-    <div class="service-box"><h3>חתכים אורליים</h3><p>טיפול בפציעות רקמות רכות.</p></div>
-  </div>
-
-  <h2>צור קשר</h2>
-  <p><strong>טלפון:</strong> <a href="tel:+972500000000">050-000-0000</a></p>
-  <p><strong>אימייל:</strong> <a href="mailto:clinic@example.com">clinic@example.com</a></p>
-
-  <h2>מיקום</h2>
-  <iframe  
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.2462189174803!2d35.215!3d31.778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzQwLjgiTiAzNcKwMTInNTQuMCJF!5e0!3m2!1she!2sil!4v1234567890"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</section>
-
-<!-- ========================= -->
-<!-- FRENCH SECTION            -->
-<!-- ========================= -->
-<section id="french">
-  <h2>À propos de la clinique</h2>
-  <p>
-    Le Dr Benjamin Reinstein offre des soins dentaires d'urgence professionnels et doux à Jérusalem.
-    Traitement immédiat pour les douleurs dentaires, les traumatismes, les gonflements et les saignements.
-  </p>
-
-  <h2>Services d'urgence dentaire</h2>
-
-  <div class="services">
-    <div class="service-box"><h3>Douleurs dentaires</h3><p>Traitement urgent en cas de douleur intense.</p></div>
-    <div class="service-box"><h3>Dents cassées ou expulsées</h3><p>Soins immédiats après un traumatisme.</p></div>
-    <div class="service-box"><h3>Gonflement</h3><p>Traitement des infections et inflammations aigües.</p></div>
-    <div class="service-box"><h3>Saignements</h3><p>Contrôle et traitement des saignements buccaux.</p></div>
-    <div class="service-box"><h3>Coupures orales</h3><p>Traitement des blessures des tissus mous.</p></div>
-  </div>
-
-  <h2>Contact</h2>
-  <p><strong>Téléphone:</strong> <a href="tel:+972500000000">050-000-0000</a></p>
-  <p><strong>Email:</strong> <a href="mailto:clinic@example.com">clinic@example.com</a></p>
-
-  <h2>Localisation</h2>
-  <iframe  
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.2462189174803!2d35.215!3d31.778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzQwLjgiTiAzNcKwMTInNTQuMCJF!5e0!3m2!1sfr!2sil!4v1234567890"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</section>
-
-<footer>
-  <p>© 2025 Dr. Benjamin Reinstein</p>
+<footer style="background:#111;color:white;text-align:center;padding:20px;">
+  <span id="footer-text"></span>
 </footer>
+
+<script>
+/* toggle */
+function toggleMenu() {
+  const menu = document.getElementById("lang-menu");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+/* click outside */
+document.addEventListener("click", e => {
+  if (!e.target.closest(".lang-dropdown")) {
+    document.getElementById("lang-menu").style.display = "none";
+  }
+});
+
+/* content */
+const MAP_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.2462189174803!2d35.215!3d31.778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzQwLjgiTiAzNcKwMTInNTQuMCJF!5e0!3m2!1sen!2sil!4v1234567890";
+
+const content = {
+  he: {
+    direction: "rtl",
+    title: "ד״ר בנימין ריינשטיין",
+    subtitle: "טיפול שיניים חירום – ירושלים",
+    aboutTitle: "על המרפאה",
+    aboutText: "ד״ר בנימין ריינשטיין מעניק טיפול חירום מקצועי בירושלים.",
+    servicesTitle: "שירותי חירום",
+    services: [
+      { title: "כאבי שיניים", desc: "טיפול מיידי." },
+      { title: "שן שבורה", desc: "טיפול לאחר טראומה." },
+      { title: "נפיחות", desc: "טיפול בזיהומים." },
+      { title: "דימומים", desc: "עצירת דימום." }
+    ],
+    contactTitle: "צור קשר",
+    phoneLabel: "טלפון:",
+    emailLabel: "אימייל:",
+    locationTitle: "מיקום",
+    footer: "© 2025 ד״ר בנימין ריינשטיין",
+    map: MAP_URL
+  },
+
+  en: {
+    direction: "ltr",
+    title: "Dr. Benjamin Reinstein",
+    subtitle: "Emergency Dental Care – Jerusalem",
+    aboutTitle: "About the Clinic",
+    aboutText: "Professional emergency dental care in Jerusalem.",
+    servicesTitle: "Emergency Services",
+    services: [
+      { title: "Tooth Pain", desc: "Treatment for severe pain." },
+      { title: "Broken Tooth", desc: "Immediate trauma care." },
+      { title: "Swelling", desc: "Infection treatment." },
+      { title: "Bleeding", desc: "Bleeding control." }
+    ],
+    contactTitle: "Contact",
+    phoneLabel: "Phone:",
+    emailLabel: "Email:",
+    locationTitle: "Location",
+    footer: "© 2025 Dr. Benjamin Reinstein",
+    map: MAP_URL
+  },
+
+  fr: {
+    direction: "ltr",
+    title: "Dr Benjamin Reinstein",
+    subtitle: "Soins dentaires d’urgence – Jérusalem",
+    aboutTitle: "À propos",
+    aboutText: "Soins dentaires d'urgence professionnels.",
+    servicesTitle: "Services d'urgence",
+    services: [
+      { title: "Douleurs dentaires", desc: "Traitement urgent." },
+      { title: "Dents cassées", desc: "Intervention immédiate." },
+      { title: "Gonflement", desc: "Traitement des infections." },
+      { title: "Saignements", desc: "Contrôle du saignement." }
+    ],
+    contactTitle: "Contact",
+    phoneLabel: "Téléphone:",
+    emailLabel: "Email:",
+    locationTitle: "Localisation",
+    footer: "© 2025 Dr Benjamin Reinstein",
+    map: MAP_URL
+  }
+};
+
+/* language switcher */
+function setLang(lang) {
+  const c = content[lang];
+
+  document.body.className = (c.direction === "rtl") ? "rtl" : "";
+
+  document.getElementById("title").innerText = c.title;
+  document.getElementById("subtitle").innerText = c.subtitle;
+
+  document.getElementById("about-title").innerText = c.aboutTitle;
+  document.getElementById("about-text").innerText = c.aboutText;
+
+  document.getElementById("services-title").innerText = c.servicesTitle;
+  document.getElementById("services-list").innerHTML =
+    c.services.map(s => `
+      <div class="service-box">
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+      </div>
+    `).join("");
+
+  document.getElementById("contact-title").innerText = c.contactTitle;
+  document.getElementById("phone-label").innerText = c.phoneLabel;
+  document.getElementById("email-label").innerText = c.emailLabel;
+  document.getElementById("location-title").innerText = c.locationTitle;
+
+  document.getElementById("map-frame").src = c.map;
+  document.getElementById("footer-text").innerText = c.footer;
+
+  document.querySelector(".lang-btn").innerText =
+    (lang === "he" ? "HE" : lang === "fr" ? "FR" : "EN") + " ▾";
+}
+
+/* default */
+setLang("he");
+</script>
 
 </body>
 </html>
