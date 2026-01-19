@@ -6,7 +6,6 @@
 <title id="page-title">ד״ר בנימין ריינשטיין</title>
 
 <style>
-
 /* GLOBAL RESET */
 html, body {
   margin: 0 !important;
@@ -16,6 +15,7 @@ html, body {
 
 :root {
   --bg-light: #f4f7ff;
+  --primary: #0056b3;
   --text: #333;
   --radius: 14px;
 }
@@ -69,7 +69,7 @@ body {
   cursor: pointer;
 }
 
-/* ======= VIDEO BANNER (NO WRAPPERS AROUND IT) ======= */
+/* VIDEO BANNER */
 header {
   width: 100vw;
   height: 350px;
@@ -98,6 +98,7 @@ header::after {
   text-align: center;
   color: white;
   z-index: 2;
+  width: 90%;
 }
 
 .header-content h1 {
@@ -110,11 +111,47 @@ header::after {
   font-size: 1.25rem;
 }
 
+/* TABS NAVIGATION */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-link {
+  padding: 15px 25px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-link.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
 /* MAIN CONTENT */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 45px 20px;
+}
+
+.tab-content {
+  display: none; /* Hidden by default */
+}
+
+.tab-content.active {
+  display: block; /* Show active tab */
 }
 
 .services {
@@ -132,15 +169,11 @@ header::after {
 }
 
 /* RTL support */
-body.rtl {
-  direction: rtl;
-  text-align: right;
-}
+body.rtl { direction: rtl; }
+body.rtl .lang-menu { right: auto; left: 0; }
+body.rtl .lang-menu button { text-align: right; }
 
-/* ===========================
-   FLOATING WHATSAPP BUTTON
-   =========================== */
-
+/* FLOATING WHATSAPP */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -149,7 +182,6 @@ body.rtl {
   height: 65px;
   z-index: 9999;
 }
-
 .whatsapp-float img {
   width: 100%;
   height: 100%;
@@ -157,17 +189,12 @@ body.rtl {
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.2s ease;
 }
-
-.whatsapp-float:hover img {
-  transform: scale(1.1);
-}
-
+.whatsapp-float:hover img { transform: scale(1.1); }
 </style>
 </head>
 
 <body class="rtl">
 
-<!-- ALWAYS FIRST -->
 <div class="topbar">
   <div class="lang-dropdown">
     <button class="lang-btn" onclick="toggleMenu()">HE ▾</button>
@@ -179,70 +206,89 @@ body.rtl {
   </div>
 </div>
 
-<!-- VIDEO BANNER CANNOT BE INSIDE ANY OTHER DIV -->
 <header>
   <video autoplay muted loop playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
-
   <div class="header-content">
     <h1 id="title"></h1>
     <p class="subtitle" id="subtitle"></p>
   </div>
 </header>
 
-<!-- CONTENT AFTER BANNER -->
+<nav class="tabs-nav">
+  <button class="tab-link active" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
+  <button class="tab-link" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
+</nav>
+
 <div class="container">
-  <h2 id="about-title"></h2>
-  <p id="about-text"></p>
+  
+  <div id="emergencies-tab" class="tab-content active">
+    <h2 id="services-title"></h2>
+    <div class="services" id="services-list"></div>
 
-  <h2 id="services-title"></h2>
-  <div class="services" id="services-list"></div>
+    <h2 id="contact-title"></h2>
+    <p><strong id="phone-label"></strong> 053-385-2030</p>
+    <p><strong id="email-label"></strong> BenjaminReinstein@gmail.com</p>
 
-  <h2 id="contact-title"></h2>
-  <p><strong id="phone-label"></strong> 053-385-2030</p>
-  <p><strong id="email-label"></strong> BenjaminReinstein@gmail.com</p>
+    <h2 id="location-title"></h2>
+    <iframe id="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
+  </div>
 
-  <h2 id="location-title"></h2>
-  <iframe id="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
+  <div id="about-tab" class="tab-content">
+    <h2 id="about-clinic-title"></h2>
+    <p id="about-clinic-text"></p>
+    </div>
+
 </div>
 
-<footer style="background:#111;color:white;text-align:center;padding:20px;">
+<footer style="background:#111;color:white;text-align:center;padding:20px; margin-top: 40px;">
   <span id="footer-text"></span>
 </footer>
 
-<!-- ===========================
-     FLOATING WHATSAPP BUTTON
-     =========================== -->
 <a href="https://wa.me/972533852030" class="whatsapp-float" target="_blank" rel="noopener">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
 <script>
-/* toggle */
+/* --- TAB LOGIC --- */
+function openTab(evt, tabId) {
+  let i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+  tablinks = document.getElementsByClassName("tab-link");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+  document.getElementById(tabId).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+
+/* --- LANGUAGE & CONTENT --- */
 function toggleMenu() {
   const menu = document.getElementById("lang-menu");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
-/* click outside */
 document.addEventListener("click", e => {
   if (!e.target.closest(".lang-dropdown")) {
     document.getElementById("lang-menu").style.display = "none";
   }
 });
 
-/* content */
-const MAP_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.2462189174803!2d35.215!3d31.778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzQwLjgiTiAzNcKwMTInNTQuMCJF!5e0!3m2!1sen!2sil!4v1234567890";
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.5627!2d35.2137!3d31.7683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA1LjkiTiAzNcKwMTInNDkuMyJF!5e0!3m2!1sen!2sil!4v1700000000000"; // Replace with your actual embed link
 
 const content = {
   he: {
     direction: "rtl",
     title: "ד״ר בנימין ריינשטיין",
     subtitle: "טיפול שיניים חירום – ירושלים",
-    aboutTitle: "טיפולים איכותיים בירושלים",
-    aboutText: "ד״ר בנימין ריינשטיין מספק טיפולי שיניים דחופים המותאמים לצריכים שלכם בשעות הערב ובסופי השבוע.",
+    tabEmergencies: "עזרה ראשונה",
+    tabAbout: "אודות המרפאה",
+    clinicTitle: "אודות המרפאה שלנו",
+    clinicText: "כאן תוכלו להוסיף מידע על הניסיון של ד״ר ריינשטיין, הציוד המודרני במרפאה והגישה המקצועית שלנו לכל מטופל.",
     servicesTitle: "שירותי חירום",
     services: [
       { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
@@ -262,8 +308,10 @@ const content = {
     direction: "ltr",
     title: "Dr. Benjamin Reinstein",
     subtitle: "Emergency Dental Care – Jerusalem",
-    aboutTitle: "Quality Care in Jerusalem",
-    aboutText: "Dr. Benjamin Reinstein provides emergency dental care tailored to your needs in the evenings and on weekends.",
+    tabEmergencies: "Dental Emergencies",
+    tabAbout: "About Our Clinic",
+    clinicTitle: "About Our Clinic",
+    clinicText: "Dr. Benjamin Reinstein provides high-quality care with a focus on patient comfort. Our clinic is equipped with modern technology to handle urgent cases efficiently.",
     servicesTitle: "Emergency Services",
     services: [
       { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden dental pain." },
@@ -283,8 +331,10 @@ const content = {
     direction: "ltr",
     title: "Dr Benjamin Reinstein",
     subtitle: "Soin dentaires d’urgence – Jérusalem",
-    aboutTitle: "Soins de qualité à Jérusalem",
-    aboutText: "Le Dr Benjamin Reinstein propose des soins dentaires d'urgence adaptés à vos besoins, en soirée et en fin de semaine.",
+    tabEmergencies: "Urgences Dentaires",
+    tabAbout: "À Propos de la Clinique",
+    clinicTitle: "À Propos de Notre Clinique",
+    clinicText: "Le Dr Benjamin Reinstein offre des soins de haute qualité en mettant l'accent sur le confort du patient. Notre clinique est équipée d'une technologie moderne.",
     servicesTitle: "Services d'urgence",
     services: [
       { title: "Douleurs dentaires", desc: "Traitement urgent en cas de douleur intense." },
@@ -301,18 +351,23 @@ const content = {
   }
 };
 
-/* language switcher */
 function setLang(lang) {
   const c = content[lang];
-
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
 
+  // Header
   document.getElementById("title").innerText = c.title;
   document.getElementById("subtitle").innerText = c.subtitle;
 
-  document.getElementById("about-title").innerText = c.aboutTitle;
-  document.getElementById("about-text").innerText = c.aboutText;
+  // Tabs
+  document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
+  document.getElementById("nav-about").innerText = c.tabAbout;
 
+  // About Tab Content
+  document.getElementById("about-clinic-title").innerText = c.clinicTitle;
+  document.getElementById("about-clinic-text").innerText = c.clinicText;
+
+  // Emergencies Tab Content
   document.getElementById("services-title").innerText = c.servicesTitle;
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
