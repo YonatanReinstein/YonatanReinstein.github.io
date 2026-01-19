@@ -147,11 +147,11 @@ header::after {
 }
 
 .tab-content {
-  display: none; /* Hidden by default */
+  display: none;
 }
 
 .tab-content.active {
-  display: block; /* Show active tab */
+  display: block;
 }
 
 .services {
@@ -224,6 +224,11 @@ body.rtl .lang-menu button { text-align: right; }
 <div class="container">
   
   <div id="emergencies-tab" class="tab-content active">
+    <h2 id="emergency-intro-title"></h2>
+    <p id="emergency-intro-text"></p>
+    
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
     <h2 id="services-title"></h2>
     <div class="services" id="services-list"></div>
 
@@ -238,7 +243,7 @@ body.rtl .lang-menu button { text-align: right; }
   <div id="about-tab" class="tab-content">
     <h2 id="about-clinic-title"></h2>
     <p id="about-clinic-text"></p>
-    </div>
+  </div>
 
 </div>
 
@@ -251,7 +256,6 @@ body.rtl .lang-menu button { text-align: right; }
 </a>
 
 <script>
-/* --- TAB LOGIC --- */
 function openTab(evt, tabId) {
   let i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tab-content");
@@ -266,7 +270,6 @@ function openTab(evt, tabId) {
   evt.currentTarget.classList.add("active");
 }
 
-/* --- LANGUAGE & CONTENT --- */
 function toggleMenu() {
   const menu = document.getElementById("lang-menu");
   menu.style.display = (menu.style.display === "block") ? "none" : "block";
@@ -278,7 +281,7 @@ document.addEventListener("click", e => {
   }
 });
 
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.5627!2d35.2137!3d31.7683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA1LjkiTiAzNcKwMTInNDkuMyJF!5e0!3m2!1sen!2sil!4v1700000000000"; // Replace with your actual embed link
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.879744155386!2d35.2137103!3d31.7738245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzI1LjgiTiAzNcKwMTInNDkuNCJF!5e0!3m2!1sen!2sil!4v1700000000000"; 
 
 const content = {
   he: {
@@ -287,8 +290,10 @@ const content = {
     subtitle: "טיפול שיניים חירום – ירושלים",
     tabEmergencies: "עזרה ראשונה",
     tabAbout: "אודות המרפאה",
+    emergencyIntroTitle: "מרפאת חירום זמינה עבורך",
+    emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף, בשעות הערב ובימי שישי ושבת.",
     clinicTitle: "אודות המרפאה שלנו",
-    clinicText: "כאן תוכלו להוסיף מידע על הניסיון של ד״ר ריינשטיין, הציוד המודרני במרפאה והגישה המקצועית שלנו לכל מטופל.",
+    clinicText: "מרפאתו של ד״ר ריינשטיין מציעה טיפולי שיניים מתקדמים באווירה רגועה ומקצועית במרכז ירושלים.",
     servicesTitle: "שירותי חירום",
     services: [
       { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
@@ -310,6 +315,8 @@ const content = {
     subtitle: "Emergency Dental Care – Jerusalem",
     tabEmergencies: "Dental Emergencies",
     tabAbout: "About Our Clinic",
+    emergencyIntroTitle: "Urgent Care When You Need It",
+    emergencyIntroText: "Dental emergencies don't stick to office hours. We are dedicated to providing fast, professional relief for urgent cases during evenings and weekends.",
     clinicTitle: "About Our Clinic",
     clinicText: "Dr. Benjamin Reinstein provides high-quality care with a focus on patient comfort. Our clinic is equipped with modern technology to handle urgent cases efficiently.",
     servicesTitle: "Emergency Services",
@@ -333,6 +340,8 @@ const content = {
     subtitle: "Soin dentaires d’urgence – Jérusalem",
     tabEmergencies: "Urgences Dentaires",
     tabAbout: "À Propos de la Clinique",
+    emergencyIntroTitle: "Des soins urgents quand vous en avez besoin",
+    emergencyIntroText: "Les urgences dentaires ne respectent pas les horaires de bureau. Nous nous engageons à fournir un soulagement rapide et professionnel pour les cas urgents en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
     clinicText: "Le Dr Benjamin Reinstein offre des soins de haute qualité en mettant l'accent sur le confort du patient. Notre clinique est équipée d'une technologie moderne.",
     servicesTitle: "Services d'urgence",
@@ -346,7 +355,7 @@ const content = {
     phoneLabel: "Téléphone:",
     emailLabel: "Email:",
     locationTitle: "Localisation",
-    footer: "© 2025 Dr Benjaminn Reinstein",
+    footer: "© 2025 Dr Benjamin Reinstein",
     map: MAP_URL
   }
 };
@@ -354,20 +363,14 @@ const content = {
 function setLang(lang) {
   const c = content[lang];
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
-
-  // Header
   document.getElementById("title").innerText = c.title;
   document.getElementById("subtitle").innerText = c.subtitle;
-
-  // Tabs
   document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
   document.getElementById("nav-about").innerText = c.tabAbout;
-
-  // About Tab Content
+  document.getElementById("emergency-intro-title").innerText = c.emergencyIntroTitle;
+  document.getElementById("emergency-intro-text").innerText = c.emergencyIntroText;
   document.getElementById("about-clinic-title").innerText = c.clinicTitle;
   document.getElementById("about-clinic-text").innerText = c.clinicText;
-
-  // Emergencies Tab Content
   document.getElementById("services-title").innerText = c.servicesTitle;
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
@@ -376,20 +379,15 @@ function setLang(lang) {
         <p>${s.desc}</p>
       </div>
     `).join("");
-
   document.getElementById("contact-title").innerText = c.contactTitle;
   document.getElementById("phone-label").innerText = c.phoneLabel;
   document.getElementById("email-label").innerText = c.emailLabel;
   document.getElementById("location-title").innerText = c.locationTitle;
-
   document.getElementById("map-frame").src = c.map;
   document.getElementById("footer-text").innerText = c.footer;
-
-  document.querySelector(".lang-btn").innerText =
-    (lang === "he" ? "HE" : lang === "fr" ? "FR" : "EN") + " ▾";
+  document.querySelector(".lang-btn").innerText = (lang === "he" ? "HE" : lang === "fr" ? "FR" : "EN") + " ▾";
 }
 
-/* default */
 setLang("he");
 </script>
 
