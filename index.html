@@ -26,16 +26,24 @@ body {
   line-height: 1.6;
 }
 
-/* TOP BAR */
+/* TOP BAR - Correction 1 & 3 */
 .topbar {
   width: 100vw;
   background: white;
   border-bottom: 1px solid #ddd;
-  padding: 12px 40px 12px 20px;
+  padding: 12px 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* Keeps items on opposite sides */
   align-items: center;
   box-sizing: border-box;
+  direction: ltr !important; /* Forces Lang on Left and Phone on Right regardless of language */
+}
+
+.top-phone {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .lang-dropdown { position: relative; }
@@ -52,7 +60,7 @@ body {
 .lang-menu {
   display: none;
   position: absolute;
-  right: 0;
+  left: 0; /* Menu opens on the left */
   background: white;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -111,7 +119,7 @@ header::after {
   font-size: 1.25rem;
 }
 
-/* TABS NAVIGATION */
+/* TABS NAVIGATION - Correction 2 */
 .tabs-nav {
   display: flex;
   justify-content: center;
@@ -170,8 +178,6 @@ header::after {
 
 /* RTL support */
 body.rtl { direction: rtl; }
-body.rtl .lang-menu { right: auto; left: 0; }
-body.rtl .lang-menu button { text-align: right; }
 
 /* FLOATING WHATSAPP */
 .whatsapp-float {
@@ -204,6 +210,7 @@ body.rtl .lang-menu button { text-align: right; }
       <button onclick="setLang('fr')">Français</button>
     </div>
   </div>
+  <a href="tel:0533852030" class="top-phone">053-385-2030</a>
 </div>
 
 <header>
@@ -217,8 +224,8 @@ body.rtl .lang-menu button { text-align: right; }
 </header>
 
 <nav class="tabs-nav">
-  <button class="tab-link active" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
   <button class="tab-link" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
+  <button class="tab-link active" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
 </nav>
 
 <div class="container">
@@ -233,7 +240,7 @@ body.rtl .lang-menu button { text-align: right; }
     <div class="services" id="services-list"></div>
 
     <h2 id="contact-title"></h2>
-    <p><strong id="phone-label"></strong> 053-385-2030</p>
+    <p><strong id="phone-label"></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
     <p><strong id="email-label"></strong> BenjaminReinstein@gmail.com</p>
 
     <h2 id="location-title"></h2>
@@ -242,7 +249,7 @@ body.rtl .lang-menu button { text-align: right; }
 
   <div id="about-tab" class="tab-content">
     <h2 id="about-clinic-title"></h2>
-    <p id="about-clinic-text"></p>
+    <div id="about-clinic-text"></div>
   </div>
 
 </div>
@@ -251,7 +258,7 @@ body.rtl .lang-menu button { text-align: right; }
   <span id="footer-text"></span>
 </footer>
 
-<a href="https://wa.me/972533852030" class="whatsapp-float" target="_blank" rel="noopener">
+<a href="#" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
@@ -281,7 +288,7 @@ document.addEventListener("click", e => {
   }
 });
 
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.879744155386!2d35.2137103!3d31.7738245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzI1LjgiTiAzNcKwMTInNDkuNCJF!5e0!3m2!1sen!2sil!4v1700000000000"; 
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.87654321!2d35.2137!3d31.7683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA1LjkiTiAzNcKwMTInNDkuMyJF!5e0!3m2!1sen!2sil!4v1620000000000"; 
 
 const content = {
   he: {
@@ -290,21 +297,22 @@ const content = {
     subtitle: "טיפולי שיניים בירושלים",
     tabEmergencies: "עזרה ראשונה",
     tabAbout: "אודות המרפאה",
+    waMsg: "שלום, אשמח לקבוע תור בבקשה.",
     emergencyIntroTitle: "המרפאה זמינה עבורך",
     emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן, עם ניסיון רב בטיפולי חירום דנטליים, כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף בשעות הערב ובסופי השבוע.",
     clinicTitle: "אודות המרפאה שלנו",
     clinicText: `
-  במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
-  אנו מתמחים בטיפולים משמרים, שיקומים, טיפולים כירורגיים והשתלות – בעזרת ציוד חדיש ושיטות עדכניות לשיפור חוויית הטיפול, הפונקציה והאסתטיקה של החיוך שלך.<br><br>
-  <b>אודות ד"ר ריינשטיין:</b>
-  <ul style="padding-right: 20px;">
-    <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר ראשון במדעים ביו-רפואים (B.Sc) ותואר ד"ר לרפואת שיניים (DMD) מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם בירושלים.</li>
-    <li>לאורך השנים עבר מספר השתלמויות בשיקום הפה, טיפולי שורש מורכבים, חידושי טיפולי שורש ועקירות כירורגיות במסגרת המחלקות השונות בבית החולים שיבא.</li>
-    <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
-    <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על הקמה וניהול של שתי מרפאות צבאיות.</li>
-  </ul>
-  ד"ר ריינשטיין מאמין ברפואת שיניים מקצועית, רגישה ומדויקת – עם מגע אנושי שמעניק ביטחון וחיוך.
-`,
+      במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
+      אנו מתמחים בטיפולים משמרים, שיקומים, טיפולים כירורגיים והשתלות – בעזרת ציוד חדיש ושיטות עדכניות לשיפור חוויית הטיפול, הפונקציה והאסתטיקה של החיוך שלך.<br><br>
+      <b>אודות ד"ר ריינשטיין:</b>
+      <ul style="padding-right: 20px;">
+        <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר ראשון במדעים ביו-רפואים (B.Sc) ותואר ד"ר לרפואת שיניים (DMD) מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם בירושלים.</li>
+        <li>לאורך השנים עבר מספר השתלמויות בשיקום הפה, טיפולי שורש מורכבים, חידושי טיפולי שורש ועקירות כירורגיות במסגרת המחלקות השונות בבית החולים שיבא.</li>
+        <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
+        <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על הקמה וניהול של שתי מרפאות צבאיות.</li>
+      </ul>
+      ד"ר ריינשטיין מאמין ברפואת שיניים מקצועית, רגישה ומדויקת – עם מגע אנושי שמעניק ביטחון וחיוך.
+    `,
     servicesTitle: "שירותי חירום",
     services: [
       { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
@@ -326,16 +334,17 @@ const content = {
     subtitle: "Dental Care in Jerusalem",
     tabEmergencies: "Dental Emergencies",
     tabAbout: "About Our Clinic",
+    waMsg: "Hi, I would like to make an appointment please.",
     emergencyIntroTitle: "Urgent Care When You Need It",
-    emergencyIntroText: "Dental emergencies don't stick to office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response to any urgent case during evenings and weekends.",
+    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response during evenings and weekends.",
     clinicTitle: "About Our Clinic",
-    clinicText: "Dr. Benjamin Reinstein provides high-quality care with a focus on patient comfort. Our clinic is equipped with modern technology to handle urgent cases efficiently.",
+    clinicText: "At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere with personal attention and an emphasis on patient comfort. We specialize in restorative treatments, rehabilitation, surgery, and implants using state-of-the-art equipment.",
     servicesTitle: "Emergency Services",
     services: [
       { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden dental pain." },
-      { title: "Broken / Knocked-Out Tooth", desc: "Immediate care after dental trauma." },
+      { title: "Broken Tooth", desc: "Immediate care after dental trauma." },
       { title: "Swelling", desc: "Treatment for infections and acute swelling." },
-      { title: "Bleeding and Oral Cuts", desc: "Soft-tissue injury treatment." }
+      { title: "Oral Bleeding", desc: "Soft-tissue injury treatment." }
     ],
     contactTitle: "Contact",
     phoneLabel: "Phone:",
@@ -351,16 +360,17 @@ const content = {
     subtitle: "Soins dentaires à Jérusalem",
     tabEmergencies: "Urgences Dentaires",
     tabAbout: "À Propos de la Clinique",
+    waMsg: "Bonjour, j'aimerai prendre rendez-vous s'il vous plait.",
     emergencyIntroTitle: "Des soins urgents quand vous en avez besoin",
-    emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Grace à notre expérience en soins dentaires d'urgence, nous sommes là pour offrir une intervention rapide et professionnelle en soirée et le week-end.",
+    emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Grâce à notre expérience, nous sommes là pour offrir une intervention rapide en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
-    clinicText: "Le Dr Benjamin Reinstein offre des soins de haute qualité en mettant l'accent sur le confort du patient. Notre clinique est équipée d'une technologie moderne.",
+    clinicText: "Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue, avec un suivi personnalisé et un accent sur le confort du patient.",
     servicesTitle: "Services d'urgence",
     services: [
       { title: "Douleurs dentaires", desc: "Traitement urgent en cas de douleur intense." },
-      { title: "Dents cassées ou expulsées", desc: "Soins immédiats après un traumatisme dentaire." },
-      { title: "Gonflement", desc: "Traitement des infections et inflammations aigües." },
-      { title: "Saignements et Coupures", desc: "Traitement des blessures des tissus oraux." }
+      { title: "Dents cassées", desc: "Soins immédiats après un traumatisme dentaire." },
+      { title: "Gonflement", desc: "Traitement des infections et inflammations." },
+      { title: "Saignements", desc: "Traitement des blessures des tissus oraux." }
     ],
     contactTitle: "Contact",
     phoneLabel: "Téléphone:",
@@ -374,14 +384,24 @@ const content = {
 function setLang(lang) {
   const c = content[lang];
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
-  document.getElementById("title").innerText = c.title;
-  document.getElementById("subtitle").innerText = c.subtitle;
+  
+  // Correction 2: Update Tab labels
   document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
   document.getElementById("nav-about").innerText = c.tabAbout;
+
+  // Header & General Content
+  document.getElementById("title").innerText = c.title;
+  document.getElementById("subtitle").innerText = c.subtitle;
   document.getElementById("emergency-intro-title").innerText = c.emergencyIntroTitle;
   document.getElementById("emergency-intro-text").innerText = c.emergencyIntroText;
   document.getElementById("about-clinic-title").innerText = c.clinicTitle;
   document.getElementById("about-clinic-text").innerHTML = c.clinicText;
+  
+  // Correction 4: WhatsApp Message
+  const encodedMsg = encodeURIComponent(c.waMsg);
+  document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodedMsg}`;
+
+  // Emergencies Tab List
   document.getElementById("services-title").innerText = c.servicesTitle;
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
@@ -390,6 +410,7 @@ function setLang(lang) {
         <p>${s.desc}</p>
       </div>
     `).join("");
+
   document.getElementById("contact-title").innerText = c.contactTitle;
   document.getElementById("phone-label").innerText = c.phoneLabel;
   document.getElementById("email-label").innerText = c.emailLabel;
