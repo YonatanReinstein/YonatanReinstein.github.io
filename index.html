@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title id="page-title">ד״ר בנימין ריינשטיין</title>
 
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🦷</text></svg>">
+
 <style>
 /* GLOBAL RESET */
 html, body {
@@ -26,17 +28,17 @@ body {
   line-height: 1.6;
 }
 
-/* TOP BAR - Correction 1 & 3 */
+/* TOP BAR */
 .topbar {
   width: 100vw;
   background: white;
   border-bottom: 1px solid #ddd;
   padding: 12px 20px;
   display: flex;
-  justify-content: space-between; /* Keeps items on opposite sides */
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  direction: ltr !important; /* Forces Lang on Left and Phone on Right regardless of language */
+  direction: ltr !important;
 }
 
 .top-phone {
@@ -60,7 +62,7 @@ body {
 .lang-menu {
   display: none;
   position: absolute;
-  left: 0; /* Menu opens on the left */
+  left: 0;
   background: white;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -119,7 +121,7 @@ header::after {
   font-size: 1.25rem;
 }
 
-/* TABS NAVIGATION - Correction 2 */
+/* TABS NAVIGATION */
 .tabs-nav {
   display: flex;
   justify-content: center;
@@ -224,13 +226,26 @@ body.rtl { direction: rtl; }
 </header>
 
 <nav class="tabs-nav">
-  <button class="tab-link" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
-  <button class="tab-link active" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
+  <button class="tab-link active" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
+  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
 </nav>
 
 <div class="container">
   
-  <div id="emergencies-tab" class="tab-content active">
+  <div id="about-tab" class="tab-content active">
+    <h2 id="about-clinic-title"></h2>
+    <div id="about-clinic-text"></div>
+    
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+    <h2 class="dynamic-contact-title"></h2>
+    <p><strong><span class="dynamic-phone-label"></span></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
+    <p><strong><span class="dynamic-email-label"></span></strong> BenjaminReinstein@gmail.com</p>
+
+    <h2 class="dynamic-location-title"></h2>
+    <iframe class="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
+  </div>
+
+  <div id="emergencies-tab" class="tab-content">
     <h2 id="emergency-intro-title"></h2>
     <p id="emergency-intro-text"></p>
     
@@ -239,17 +254,12 @@ body.rtl { direction: rtl; }
     <h2 id="services-title"></h2>
     <div class="services" id="services-list"></div>
 
-    <h2 id="contact-title"></h2>
-    <p><strong id="phone-label"></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
-    <p><strong id="email-label"></strong> BenjaminReinstein@gmail.com</p>
+    <h2 class="dynamic-contact-title"></h2>
+    <p><strong><span class="dynamic-phone-label"></span></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
+    <p><strong><span class="dynamic-email-label"></span></strong> BenjaminReinstein@gmail.com</p>
 
-    <h2 id="location-title"></h2>
-    <iframe id="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
-  </div>
-
-  <div id="about-tab" class="tab-content">
-    <h2 id="about-clinic-title"></h2>
-    <div id="about-clinic-text"></div>
+    <h2 class="dynamic-location-title"></h2>
+    <iframe class="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
   </div>
 
 </div>
@@ -288,19 +298,20 @@ document.addEventListener("click", e => {
   }
 });
 
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.87654321!2d35.2137!3d31.7683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA1LjkiTiAzNcKwMTInNDkuMyJF!5e0!3m2!1sen!2sil!4v1620000000000"; 
+// Correction 3: Shamai 14, Jerusalem
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.2033878024285!2d35.21639377516828!3d31.7813589740967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d6f03d5089%3A0xc6a828e8316109f!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000"; 
 
 const content = {
   he: {
     direction: "rtl",
     title: "ד״ר בנימין ריינשטיין",
-    subtitle: "טיפולי שיניים בירושלים",
+    subtitle: "מרפאת שיניים בירושלים",
     tabEmergencies: "עזרה ראשונה",
     tabAbout: "אודות המרפאה",
     waMsg: "שלום, אשמח לקבוע תור בבקשה.",
-    emergencyIntroTitle: "המרפאה זמינה עבורך",
+    emergencyIntroTitle: "זקוקים לעזרה דחופה?",
     emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן, עם ניסיון רב בטיפולי חירום דנטליים, כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף בשעות הערב ובסופי השבוע.",
-    clinicTitle: "אודות המרפאה שלנו",
+    clinicTitle: "אודות המרפאה",
     clinicText: `
       במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
       אנו מתמחים בטיפולים משמרים, שיקומים, טיפולים כירורגיים והשתלות – בעזרת ציוד חדיש ושיטות עדכניות לשיפור חוויית הטיפול, הפונקציה והאסתטיקה של החיוך שלך.<br><br>
@@ -324,8 +335,7 @@ const content = {
     phoneLabel: "טלפון:",
     emailLabel: "אימייל:",
     locationTitle: "מיקום",
-    footer: "© 2025 ד״ר בנימין ריינשטיין",
-    map: MAP_URL
+    footer: "© 2025 ד״ר בנימין ריינשטיין"
   },
 
   en: {
@@ -333,12 +343,12 @@ const content = {
     title: "Dr. Benjamin Reinstein",
     subtitle: "Dental Care in Jerusalem",
     tabEmergencies: "Dental Emergencies",
-    tabAbout: "About Our Clinic",
+    tabAbout: "About the Clinic",
     waMsg: "Hi, I would like to make an appointment please.",
-    emergencyIntroTitle: "Urgent Care When You Need It",
-    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response during evenings and weekends.",
+    emergencyIntroTitle: "Need Urgent Assistance?",
+    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response to any urgent case during evenings and weekends.",
     clinicTitle: "About Our Clinic",
-    clinicText: "At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere with personal attention and an emphasis on patient comfort. We specialize in restorative treatments, rehabilitation, surgery, and implants using state-of-the-art equipment.",
+    clinicText: "At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere, with personal attention and an emphasis on patient comfort.<br><br><b>About Dr. Reinstein:</b><br>Dr. Benjamin Reinstein holds a DMD from the Hebrew University and Hadassah Ein Kerem. He has completed advanced training at Sheba Medical Center and believes in professional, sensitive, and precise dentistry.",
     servicesTitle: "Emergency Services",
     services: [
       { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden dental pain." },
@@ -346,12 +356,11 @@ const content = {
       { title: "Swelling", desc: "Treatment for infections and acute swelling." },
       { title: "Oral Bleeding", desc: "Soft-tissue injury treatment." }
     ],
-    contactTitle: "Contact",
+    contactTitle: "Contact Us",
     phoneLabel: "Phone:",
     emailLabel: "Email:",
     locationTitle: "Location",
-    footer: "© 2025 Dr. Benjamin Reinstein",
-    map: MAP_URL
+    footer: "© 2025 Dr. Benjamin Reinstein"
   },
 
   fr: {
@@ -361,8 +370,8 @@ const content = {
     tabEmergencies: "Urgences Dentaires",
     tabAbout: "À Propos de la Clinique",
     waMsg: "Bonjour, j'aimerai prendre rendez-vous s'il vous plait.",
-    emergencyIntroTitle: "Des soins urgents quand vous en avez besoin",
-    emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Grâce à notre expérience, nous sommes là pour offrir une intervention rapide en soirée et le week-end.",
+    emergencyIntroTitle: "Besoin d'aide urgente ?",
+    emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Nous sommes là pour offrir une intervention rapide et professionnelle en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
     clinicText: "Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue, avec un suivi personnalisé et un accent sur le confort du patient.",
     servicesTitle: "Services d'urgence",
@@ -376,8 +385,7 @@ const content = {
     phoneLabel: "Téléphone:",
     emailLabel: "Email:",
     locationTitle: "Localisation",
-    footer: "© 2025 Dr Benjamin Reinstein",
-    map: MAP_URL
+    footer: "© 2025 Dr Benjamin Reinstein"
   }
 };
 
@@ -385,11 +393,8 @@ function setLang(lang) {
   const c = content[lang];
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
   
-  // Correction 2: Update Tab labels
   document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
   document.getElementById("nav-about").innerText = c.tabAbout;
-
-  // Header & General Content
   document.getElementById("title").innerText = c.title;
   document.getElementById("subtitle").innerText = c.subtitle;
   document.getElementById("emergency-intro-title").innerText = c.emergencyIntroTitle;
@@ -397,11 +402,17 @@ function setLang(lang) {
   document.getElementById("about-clinic-title").innerText = c.clinicTitle;
   document.getElementById("about-clinic-text").innerHTML = c.clinicText;
   
-  // Correction 4: WhatsApp Message
+  // WhatsApp
   const encodedMsg = encodeURIComponent(c.waMsg);
   document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodedMsg}`;
 
-  // Emergencies Tab List
+  // Fill all contact labels (multiple sections)
+  document.querySelectorAll(".dynamic-contact-title").forEach(el => el.innerText = c.contactTitle);
+  document.querySelectorAll(".dynamic-phone-label").forEach(el => el.innerText = c.phoneLabel);
+  document.querySelectorAll(".dynamic-email-label").forEach(el => el.innerText = c.emailLabel);
+  document.querySelectorAll(".dynamic-location-title").forEach(el => el.innerText = c.locationTitle);
+  document.querySelectorAll(".map-frame").forEach(el => el.src = MAP_URL);
+
   document.getElementById("services-title").innerText = c.servicesTitle;
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
@@ -411,11 +422,6 @@ function setLang(lang) {
       </div>
     `).join("");
 
-  document.getElementById("contact-title").innerText = c.contactTitle;
-  document.getElementById("phone-label").innerText = c.phoneLabel;
-  document.getElementById("email-label").innerText = c.emailLabel;
-  document.getElementById("location-title").innerText = c.locationTitle;
-  document.getElementById("map-frame").src = c.map;
   document.getElementById("footer-text").innerText = c.footer;
   document.querySelector(".lang-btn").innerText = (lang === "he" ? "HE" : lang === "fr" ? "FR" : "EN") + " ▾";
 }
