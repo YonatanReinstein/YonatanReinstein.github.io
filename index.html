@@ -381,7 +381,7 @@ function setLang(lang) {
   document.getElementById("emergency-intro-title").innerText = c.emergencyIntroTitle;
   document.getElementById("emergency-intro-text").innerText = c.emergencyIntroText;
   document.getElementById("about-clinic-title").innerText = c.clinicTitle;
-  document.getElementById("about-clinic-text").innerText = c.clinicText;
+  document.getElementById("about-clinic-text").innerHTML = c.clinicText;
   document.getElementById("services-title").innerText = c.servicesTitle;
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
