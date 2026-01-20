@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title id="page-title">ד״ר בנימין ריינשטיין</title>
 
- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,25 C30,15 70,15 70,25 C70,45 60,60 60,85 C50,95 40,85 40,85 C40,60 30,45 30,25%22 fill=%22%230056b3%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
+ 
 <style>
 /* GLOBAL RESET */
 html, body {
@@ -326,7 +327,7 @@ const content = {
     servicesTitle: "שירותי חירום",
     services: [
       { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
-      { title: "שבר או נפילת שן", desc: "טיפול לאחר חבלה או טראומה דנטלי." },
+      { title: "שבר או נפילת שן", desc: "טיפול לאחר חבלה וטראומה דנטלי." },
       { title: "נפיחות", desc: "טיפול בזיהומים חריפים ונפיחויות." },
       { title: "דימומים וחתכים אוראליים", desc: "טיפול בפציעות רקמות רכות." }
     ],
@@ -347,8 +348,18 @@ const content = {
     emergencyIntroTitle: "Need Urgent Assistance?",
     emergencyIntroText: "Tooth pain doesn't wait for regular office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response to any urgent case during evenings and weekends.",
     clinicTitle: "About Our Clinic",
-    clinicText: "At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere, with personal attention and an emphasis on patient comfort.<br><br><b>About Dr. Reinstein:</b><br>Dr. Benjamin Reinstein holds a DMD from the Hebrew University and Hadassah Ein Kerem. He has completed advanced training at Sheba Medical Center and believes in professional, sensitive, and precise dentistry.",
-    servicesTitle: "Emergency Services",
+    clinicText: `
+  At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere, with personal attention and an emphasis on patient comfort.<br><br>
+  We specialize in restorative treatments, rehabilitation, surgical procedures, and implants – using state-of-the-art equipment and modern methods to improve your treatment experience, function, and the aesthetics of your smile.<br><br>
+  <b>About Dr. Reinstein:</b>
+  <ul style="padding-left: 20px;">
+    <li><b>Dr. Benjamin Reinstein</b> holds a B.Sc in Biomedical Sciences and a DMD from the Hebrew University and Hadassah Ein Kerem Faculty of Dental Medicine.</li>
+    <li>Over the years, he has completed advanced training in oral rehabilitation, complex root canals, and surgical extractions at Sheba Medical Center.</li>
+    <li>Member of the Israeli Association of Dental Implants.</li>
+    <li>Recipient of the IDF Medical Services Commander's Excellence Award for establishing and managing two military clinics.</li>
+  </ul>
+  Dr. Reinstein believes in professional, sensitive, and precise dentistry – with a human touch that provides confidence and a smile.
+`,
     services: [
       { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden dental pain." },
       { title: "Broken Tooth", desc: "Immediate care after dental trauma." },
@@ -372,7 +383,18 @@ const content = {
     emergencyIntroTitle: "Besoin d'aide urgente ?",
     emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Nous sommes là pour offrir une intervention rapide et professionnelle en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
-    clinicText: "Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue, avec un suivi personnalisé et un accent sur le confort du patient.",
+   clinicText: `
+  Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue, avec un suivi personnalisé et un accent sur le confort du patient.<br><br>
+  Nous nous spécialisons dans les soins conservateurs, la réhabilitation, la chirurgie et les implants – en utilisant des équipements modernes pour améliorer votre expérience de soin, la fonction et l'esthétique de votre sourire.<br><br>
+  <b>À propos du Dr Reinstein :</b>
+  <ul style="padding-left: 20px;">
+    <li><b>Le Dr Benjamin Reinstein</b> est diplômé d'un B.Sc en sciences biomédicales et d'un doctorat en médecine dentaire (DMD) de l'Université hébraïque et d'Hadassah Ein Kerem.</li>
+    <li>Il a suivi de nombreuses formations spécialisées en réhabilitation orale et chirurgie au centre médical Sheba.</li>
+    <li>Membre de l'Association israélienne des implants dentaires.</li>
+    <li>Lauréat du prix d'excellence du commandant des services médicaux de Tsahal.</li>
+  </ul>
+  Le Dr Reinstein croit en une dentisterie professionnelle, sensible et précise – avec une touche humaine qui redonne confiance et le sourire.
+`,
     servicesTitle: "Services d'urgence",
     services: [
       { title: "Douleurs dentaires", desc: "Traitement urgent en cas de douleur intense." },
