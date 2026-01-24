@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title id="page-title">ד״ר בנימין ריינשטיין</title>
+<title id="page-title">ד״ר בנימין ריינשטיין | מרפאת שיניים בירושלים</title>
+
+<meta name="description" content="זקוקים לרופא שיניים בירושלים? ד״ר בנימין ריינשטיין מציע טיפולי שיניים מתקדמים, השתלות וטיפולי חירום דנטליים בשעות הערב ובסופי שבוע באווירה רגועה ומקצועית.">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
  
@@ -26,6 +28,18 @@ body {
   background: var(--bg-light);
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
+  color: var(--text);
+}
+
+/* LIST FIXES - Resolves the disappearing bullet points on mobile */
+ul {
+  padding: 0;
+  margin: 20px 0;
+  list-style-position: inside; /* Forces bullets to stay inside the container */
+}
+
+li {
+  margin-bottom: 10px;
 }
 
 /* TOP BAR */
@@ -113,12 +127,12 @@ header::after {
 
 .header-content h1 {
   margin: 0;
-  font-size: 2.6rem;
+  font-size: 2.3rem;
 }
 
 .header-content .subtitle {
   margin-top: 12px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 /* TABS NAVIGATION */
@@ -133,11 +147,11 @@ header::after {
 }
 
 .tab-link {
-  padding: 15px 25px;
+  padding: 15px 20px;
   cursor: pointer;
   border: none;
   background: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #666;
   transition: 0.3s;
@@ -153,7 +167,7 @@ header::after {
 .container {
   max-width: 1000px;
   margin: auto;
-  padding: 45px 20px;
+  padding: 30px 20px;
 }
 
 .tab-content {
@@ -180,14 +194,16 @@ header::after {
 
 /* RTL support */
 body.rtl { direction: rtl; }
+body.rtl ul { padding-right: 10px; } /* Small padding for RTL bullets */
+body:not(.rtl) ul { padding-left: 10px; } /* Small padding for LTR bullets */
 
 /* FLOATING WHATSAPP */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   z-index: 9999;
 }
 .whatsapp-float img {
@@ -195,9 +211,7 @@ body.rtl { direction: rtl; }
   height: 100%;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
 }
-.whatsapp-float:hover img { transform: scale(1.1); }
 </style>
 </head>
 
@@ -298,8 +312,7 @@ document.addEventListener("click", e => {
   }
 });
 
-// Correction 3: Shamai 14, Jerusalem
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.2033878024285!2d35.21639377516828!3d31.7813589740967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d6f03d5089%3A0xc6a828e8316109f!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000"; 
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.644485748231!2d35.2185526!3d31.7801833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d726b2890521%3A0xc3f587936a54056a!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000"; 
 
 const content = {
   he: {
@@ -310,26 +323,25 @@ const content = {
     tabAbout: "אודות המרפאה",
     waMsg: "שלום, אשמח לקבוע תור בבקשה.",
     emergencyIntroTitle: "זקוקים לעזרה דחופה?",
-    emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן, עם ניסיון רב בטיפולי חירום דנטליים, כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף בשעות הערב ובסופי השבוע.",
+    emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף בשעות הערב ובסופי השבוע.",
     clinicTitle: "אודות המרפאה",
     clinicText: `
       במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
-      אנו מתמחים בטיפולים משמרים, שיקומים, טיפולים כירורגיים והשתלות – בעזרת ציוד חדיש ושיטות עדכניות לשיפור חוויית הטיפול, הפונקציה והאסתטיקה של החיוך שלך.<br><br>
+      אנו מתמחים בטיפולים משמרים, שיקומים, כירורגיה והשתלות בעזרת ציוד חדיש לשיפור חוויית הטיפול והאסתטיקה של החיוך שלך.<br><br>
       <b>אודות ד"ר ריינשטיין:</b>
-      <ul style="padding-right: 20px;">
-        <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר ראשון במדעים ביו-רפואים (B.Sc) ותואר ד"ר לרפואת שיניים (DMD) מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם בירושלים.</li>
-        <li>לאורך השנים עבר מספר השתלמויות בשיקום הפה, טיפולי שורש מורכבים, חידושי טיפולי שורש ועקירות כירורגיות במסגרת המחלקות השונות בבית החולים שיבא.</li>
+      <ul>
+        <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר DMD מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם.</li>
+        <li>השתלמויות בשיקום הפה, טיפולי שורש מורכבים ועקירות כירורגיות במרכז הרפואי שיבא.</li>
         <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
-        <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על הקמה וניהול של שתי מרפאות צבאיות.</li>
+        <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על ניהול מרפאות צבאיות.</li>
       </ul>
-      ד"ר בנימין מאמין ברפואת שיניים משמרת ומקצועית לצד אווירה רגועה.
     `,
     servicesTitle: "שירותי חירום",
     services: [
       { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
       { title: "שבר או נפילת שן", desc: "טיפול לאחר חבלה וטראומה דנטלי." },
       { title: "נפיחות", desc: "טיפול בזיהומים חריפים ונפיחויות." },
-      { title: "דימומים וחתכים אוראליים", desc: "טיפול בפציעות רקמות רכות." }
+      { title: "דימומים וחתכים", desc: "טיפול בפציעות רקמות רכות." }
     ],
     contactTitle: "צור קשר",
     phoneLabel: "טלפון:",
@@ -346,22 +358,22 @@ const content = {
     tabAbout: "About the Clinic",
     waMsg: "Hi, I would like to make an appointment please.",
     emergencyIntroTitle: "Need Urgent Assistance?",
-    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. With extensive experience in emergency dental care, we are here to provide a professional and rapid response to any urgent case during evenings and weekends.",
+    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. We are here to provide a rapid response during evenings and weekends.",
     clinicTitle: "About Our Clinic",
     clinicText: `
-  At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere, with personal attention and an emphasis on patient comfort.<br><br>
-  We specialize in restorative treatments, rehabilitation, surgical procedures, and implants – using state-of-the-art equipment and modern methods to improve your treatment experience, function, and the aesthetics of your smile.<br><br>
-  <b>About Dr. Reinstein:</b>
-  <ul style="padding-left: 20px;">
-    <li><b>Dr. Benjamin Reinstein</b> holds a B.Sc in Biomedical Sciences and a DMD from the Hebrew University and Hadassah Ein Kerem Faculty of Dental Medicine.</li>
-    <li>Over the years, he has completed advanced training in oral rehabilitation, complex root canals, and surgical extractions at Sheba Medical Center.</li>
-    <li>Member of the Israeli Association of Dental Implants.</li>
-    <li>Recipient of the IDF Medical Services Commander's Excellence Award for establishing and managing two military clinics.</li>
-  </ul>
-  Dr. Reinstein believes in professional, sensitive, and precise dentistry – with a human touch that provides confidence and a smile.
-`,
+      At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere with personal attention.<br><br>
+      We specialize in restorative treatments, rehabilitation, surgery, and implants using state-of-the-art equipment.<br><br>
+      <b>About Dr. Reinstein:</b>
+      <ul>
+        <li><b>Dr. Benjamin Reinstein</b> holds a DMD from the Hebrew University and Hadassah Ein Kerem.</li>
+        <li>Advanced training in oral rehabilitation and surgical extractions at Sheba Medical Center.</li>
+        <li>Member of the Israeli Association of Dental Implants.</li>
+        <li>Recipient of the IDF Medical Services Excellence Award.</li>
+      </ul>
+    `,
+    servicesTitle: "Emergency Services",
     services: [
-      { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden dental pain." },
+      { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden pain." },
       { title: "Broken Tooth", desc: "Immediate care after dental trauma." },
       { title: "Swelling", desc: "Treatment for infections and acute swelling." },
       { title: "Oral Bleeding", desc: "Soft-tissue injury treatment." }
@@ -381,26 +393,25 @@ const content = {
     tabAbout: "À Propos de la Clinique",
     waMsg: "Bonjour, j'aimerai prendre rendez-vous s'il vous plait.",
     emergencyIntroTitle: "Besoin d'aide urgente ?",
-    emergencyIntroText: "Une rage de dents n’attend pas les horaires de bureau. Nous sommes là pour offrir une intervention rapide et professionnelle en soirée et le week-end.",
+    emergencyIntroText: "Une rage de dents n’attend pas. Nous sommes là pour offrir une intervention rapide en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
-   clinicText: `
-  Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue, avec un suivi personnalisé et un accent sur le confort du patient.<br><br>
-  Nous nous spécialisons dans les soins conservateurs, la réhabilitation, la chirurgie et les implants – en utilisant des équipements modernes pour améliorer votre expérience de soin, la fonction et l'esthétique de votre sourire.<br><br>
-  <b>À propos du Dr Reinstein :</b>
-  <ul style="padding-left: 20px;">
-    <li><b>Le Dr Benjamin Reinstein</b> est diplômé d'un B.Sc en sciences biomédicales et d'un doctorat en médecine dentaire (DMD) de l'Université hébraïque et d'Hadassah Ein Kerem.</li>
-    <li>Il a suivi de nombreuses formations spécialisées en réhabilitation orale et chirurgie au centre médical Sheba.</li>
-    <li>Membre de l'Association israélienne des implants dentaires.</li>
-    <li>Lauréat du prix d'excellence du commandant des services médicaux de Tsahal.</li>
-  </ul>
-  Le Dr Reinstein croit en une dentisterie professionnelle, sensible et précise – avec une touche humaine qui redonne confiance et le sourire.
-`,
+    clinicText: `
+      Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue.<br><br>
+      Nous nous spécialisons dans les soins conservateurs, la réhabilitation, la chirurgie et les implants.<br><br>
+      <b>À propos du Dr Reinstein :</b>
+      <ul>
+        <li><b>Le Dr Benjamin Reinstein</b> est diplômé DMD de l'Université hébraïque et d'Hadassah Ein Kerem.</li>
+        <li>Formations spécialisées en réhabilitation orale et chirurgie au centre médical Sheba.</li>
+        <li>Membre de l'Association israélienne des implants dentaires.</li>
+        <li>Lauréat du prix d'excellence des services médicaux de Tsahal.</li>
+      </ul>
+    `,
     servicesTitle: "Services d'urgence",
     services: [
-      { title: "Douleurs dentaires", desc: "Traitement urgent en cas de douleur intense." },
-      { title: "Dents cassées", desc: "Soins immédiats après un traumatisme dentaire." },
-      { title: "Gonflement", desc: "Traitement des infections et inflammations." },
-      { title: "Saignements", desc: "Traitement des blessures des tissus oraux." }
+      { title: "Douleurs dentaires", desc: "Traitement urgent de la douleur." },
+      { title: "Dents cassées", desc: "Soins immédiats après un traumatisme." },
+      { title: "Gonflement", desc: "Traitement des infections." },
+      { title: "Saignements", desc: "Blessures des tissus oraux." }
     ],
     contactTitle: "Contact",
     phoneLabel: "Téléphone:",
@@ -423,18 +434,16 @@ function setLang(lang) {
   document.getElementById("about-clinic-title").innerText = c.clinicTitle;
   document.getElementById("about-clinic-text").innerHTML = c.clinicText;
   
-  // WhatsApp
   const encodedMsg = encodeURIComponent(c.waMsg);
   document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodedMsg}`;
 
-  // Fill all contact labels (multiple sections)
   document.querySelectorAll(".dynamic-contact-title").forEach(el => el.innerText = c.contactTitle);
   document.querySelectorAll(".dynamic-phone-label").forEach(el => el.innerText = c.phoneLabel);
   document.querySelectorAll(".dynamic-email-label").forEach(el => el.innerText = c.emailLabel);
   document.querySelectorAll(".dynamic-location-title").forEach(el => el.innerText = c.locationTitle);
   document.querySelectorAll(".map-frame").forEach(el => el.src = MAP_URL);
 
-  document.getElementById("services-title").innerText = c.servicesTitle;
+  document.getElementById("services-title").innerText = c.servicesTitle || "Services";
   document.getElementById("services-list").innerHTML =
     c.services.map(s => `
       <div class="service-box">
