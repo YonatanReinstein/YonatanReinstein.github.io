@@ -4,207 +4,85 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>ד״ר בנימין ריינשטיין | מרפאת שיניים בירושלים | עזרה ראשונה</title>
-<meta name="description" content="זקוקים לרופא שיניים בירושלים? ד״ר בנימין ריינשטיין מציע טיפולי שיניים מתקדמים, השתלות וטיפולי חירום דנטליים בשעות הערב ובסופי שבוע באווירה רגועה ומקצועית.">
+<title>ד״ר בנימין ריינשטיין | רופא שיניים בירושלים | השתלות שיניים ועזרה ראשונה</title>
+<meta name="description" content="מרפאת שיניים מתקדמת בירושלים בניהול ד״ר בנימין ריינשטיין. מומחיות בהשתלות, אסתטיקה, שיקום הפה וטיפולי חירום דנטליים 24/6. מקצועיות, ניסיון ויחס אישי.">
+<meta name="keywords" content="רופא שיניים ירושלים, השתלות שיניים, עזרה ראשונה שיניים, טיפול שורש, אסתטיקה דנטלית">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Dr. Benjamin Reinstein - ד״ר בנימין ריינשטיין",
+  "image": "https://yourwebsite.com/logo.png",
+  "url": "https://yourwebsite.com",
+  "telephone": "+972-53-385-2030",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Shamai 14",
+    "addressLocality": "Jerusalem",
+    "addressRegion": "Jerusalem",
+    "postalCode": "9463102",
+    "addressCountry": "IL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.7812,
+    "longitude": 35.2198
+  }
+}
+</script>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
  
 <style>
-/* GLOBAL RESET */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
+/* GLOBAL STYLES */
+html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
+:root { --bg-light: #f4f7ff; --primary: #0056b3; --text: #333; --radius: 14px; }
+body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); transition: background 0.3s; }
 
-:root {
-  --bg-light: #f4f7ff;
-  --primary: #0056b3;
-  --text: #333;
-  --radius: 14px;
-}
-
-body {
-  background: var(--bg-light);
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-/* LIST ALIGNMENT FIX (Hanging Indent) */
-ul {
-  list-style-position: outside; /* Bullets stay in their own column */
-  margin: 20px 0;
-  padding-inline-start: 25px; /* Smart padding: Right for Hebrew, Left for English */
-}
-
-li {
-  margin-bottom: 12px;
-  padding-inline-start: 5px; /* Slight gap between bullet and text */
-}
+/* LIST ALIGNMENT (Hanging Indent) */
+ul { list-style-position: outside; margin: 20px 0; padding-inline-start: 25px; }
+li { margin-bottom: 12px; padding-inline-start: 5px; }
 
 /* TOP BAR */
-.topbar {
-  width: 100vw;
-  background: white;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  direction: ltr !important;
-}
+.topbar { width: 100vw; background: white; border-bottom: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; direction: ltr !important; }
+.top-phone { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+.lang-btn { padding: 6px 18px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: white; font-weight: 600; }
+.lang-menu { display: none; position: absolute; left: 20px; background: white; border: 1px solid #ccc; border-radius: 8px; margin-top: 5px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.lang-menu button { background: none; border: none; padding: 12px 20px; width: 100%; text-align: left; cursor: pointer; border-bottom: 1px solid #eee; }
 
-.top-phone {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
+/* HERO SECTION */
+header { width: 100vw; height: 350px; position: relative; overflow: hidden; }
+header video { width: 100%; height: 100%; object-fit: cover; }
+header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+.header-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; z-index: 2; width: 90%; }
+.header-content h1 { margin: 0; font-size: 2.3rem; }
 
-.lang-dropdown { position: relative; }
+/* NAVIGATION TABS */
+.tabs-nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; position: sticky; top: 0; z-index: 100; }
+.tab-link { padding: 15px 12px; cursor: pointer; border: none; background: none; font-size: 0.95rem; font-weight: 600; color: #666; transition: 0.3s; border-bottom: 3px solid transparent; }
+.tab-link.active { color: var(--primary); border-bottom: 3px solid var(--primary); }
 
-.lang-btn {
-  padding: 6px 18px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  background: white;
-  font-weight: 600;
-}
-
-.lang-menu {
-  display: none;
-  position: absolute;
-  left: 0;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-top: 5px;
-  z-index: 10;
-}
-
-.lang-menu button {
-  background: none;
-  border: none;
-  padding: 10px 20px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-/* VIDEO BANNER */
-header {
-  width: 100vw;
-  height: 350px;
-  position: relative;
-  overflow: hidden;
-}
-
-header video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-.header-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 2;
-  width: 90%;
-}
-
-.header-content h1 {
-  margin: 0;
-  font-size: 2.3rem;
-}
-
-.header-content .subtitle {
-  margin-top: 12px;
-  font-size: 1.1rem;
-}
-
-/* TABS NAVIGATION */
-.tabs-nav {
-  display: flex;
-  justify-content: center;
-  background: white;
-  border-bottom: 2px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.tab-link {
-  padding: 15px 20px;
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #666;
-  transition: 0.3s;
-  border-bottom: 3px solid transparent;
-}
-
-.tab-link.active {
-  color: var(--primary);
-  border-bottom: 3px solid var(--primary);
-}
-
-/* MAIN CONTENT */
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 30px 20px;
-}
-
-.tab-content { display: none; }
+/* MAIN CONTAINER */
+.container { max-width: 1000px; margin: auto; padding: 30px 20px; }
+.tab-content { display: none; animation: fadeIn 0.4s ease; }
 .tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 22px;
-}
+/* GRID SYSTEM */
+.grid-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 30px; }
+.box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; transition: 0.2s; border: 1px solid transparent; }
+.box:hover { border-color: var(--primary); transform: translateY(-3px); }
+.box h3 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
 
-.service-box {
-  background: white;
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
-  text-align: center;
-}
-
-/* RTL support */
+/* RTL SUPPORT */
 body.rtl { direction: rtl; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
+.whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-/* FLOATING WHATSAPP */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  z-index: 9999;
-}
-.whatsapp-float img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+@media (max-width: 600px) {
+  .header-content h1 { font-size: 1.8rem; }
+  .tab-link { padding: 15px 8px; font-size: 0.85rem; }
 }
 </style>
 </head>
@@ -224,9 +102,7 @@ body.rtl { direction: rtl; }
 </div>
 
 <header>
-  <video autoplay muted loop playsinline>
-    <source src="video.mp4" type="video/mp4">
-  </video>
+  <video autoplay muted loop playsinline><source src="video.mp4" type="video/mp4"></video>
   <div class="header-content">
     <h1 id="title"></h1>
     <p class="subtitle" id="subtitle"></p>
@@ -235,44 +111,34 @@ body.rtl { direction: rtl; }
 
 <nav class="tabs-nav">
   <button class="tab-link active" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
+  <button class="tab-link" onclick="openTab(event, 'services-tab')" id="nav-services"></button>
   <button class="tab-link" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
 </nav>
 
-<div class="container">
-  
-  <div id="about-tab" class="tab-content active">
+<main class="container">
+  <section id="about-tab" class="tab-content active">
     <h2 id="about-clinic-title"></h2>
     <div id="about-clinic-text"></div>
-    
-    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-    <h2 class="dynamic-contact-title"></h2>
-    <p><strong><span class="dynamic-phone-label"></span></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
-    <p><strong><span class="dynamic-email-label"></span></strong> BenjaminReinstein@gmail.com</p>
+    <div class="contact-section"></div>
+  </section>
 
-    <h2 class="dynamic-location-title"></h2>
-    <iframe class="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
-  </div>
+  <section id="services-tab" class="tab-content">
+    <h2 id="services-main-title"></h2>
+    <p id="services-main-intro"></p>
+    <div id="services-main-list" class="grid-list"></div>
+    <div class="contact-section"></div>
+  </section>
 
-  <div id="emergencies-tab" class="tab-content">
+  <section id="emergencies-tab" class="tab-content">
     <h2 id="emergency-intro-title"></h2>
     <p id="emergency-intro-text"></p>
-    
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+    <div id="emergency-services-list" class="grid-list"></div>
+    <div class="contact-section"></div>
+  </section>
+</main>
 
-    <h2 id="services-title"></h2>
-    <div class="services" id="services-list"></div>
-
-    <h2 class="dynamic-contact-title"></h2>
-    <p><strong><span class="dynamic-phone-label"></span></strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
-    <p><strong><span class="dynamic-email-label"></span></strong> BenjaminReinstein@gmail.com</p>
-
-    <h2 class="dynamic-location-title"></h2>
-    <iframe class="map-frame" width="100%" height="350" style="border:0;border-radius:14px;" loading="lazy"></iframe>
-  </div>
-
-</div>
-
-<footer style="background:#111;color:white;text-align:center;padding:20px; margin-top: 40px;">
+<footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">
   <span id="footer-text"></span>
 </footer>
 
@@ -281,173 +147,155 @@ body.rtl { direction: rtl; }
 </a>
 
 <script>
-function openTab(evt, tabId) {
-  let i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tab-content");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].classList.remove("active");
-  }
-  tablinks = document.getElementsByClassName("tab-link");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active");
-  }
-  document.getElementById(tabId).classList.add("active");
-  if (evt) evt.currentTarget.classList.add("active");
-}
-
-function toggleMenu() {
-  const menu = document.getElementById("lang-menu");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-document.addEventListener("click", e => {
-  if (!e.target.closest(".lang-dropdown")) {
-    document.getElementById("lang-menu").style.display = "none";
-  }
-});
-
-// Shamai 14, Jerusalem
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.7456743907724!2d35.2185412!3d31.7803328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d73359d99723%3A0xc68291475513220!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000!5m2!1sen!2sil"; 
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.874415891369!2d35.219803!3d31.781204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d5d5d5d5d5%3A0x5d5d5d5d5d5d5d5d!2sShamai%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000";
 
 const content = {
   he: {
     direction: "rtl",
     title: "ד״ר בנימין ריינשטיין",
     subtitle: "מרפאת שיניים בירושלים",
-    tabEmergencies: "עזרה ראשונה",
-    tabAbout: "אודות המרפאה",
+    tabs: { about: "אודות", services: "שירותים", emergency: "עזרה ראשונה" },
     waMsg: "שלום, אשמח לקבוע תור בבקשה.",
-    emergencyIntroTitle: "זקוקים לעזרה דחופה?",
-    emergencyIntroText: "כאב שיניים אינו מחכה לשעות העבודה הרגילות. אנו כאן כדי לספק מענה מקצועי ומהיר לכל מקרה דחוף בשעות הערב ובסופי השבוע.",
-    clinicTitle: "אודות המרפאה",
-    clinicText: `
-      במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
-      אנו מתמחים בטיפולים משמרים, שיקומים, כירורגיה והשתלות בעזרת ציוד חדיש לשיפור חוויית הטיפול והאסתטיקה של החיוך שלך.<br><br>
-      <b>אודות ד"ר ריינשטיין:</b>
-      <ul>
-        <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר DMD מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם.</li>
-        <li>השתלמויות בשיקום הפה, טיפולי שורש מורכבים ועקירות כירורגיות במרכז הרפואי שיבא.</li>
-        <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
-        <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על ניהול מרפאות צבאיות.</li>
-      </ul>
-    `,
-    servicesTitle: "שירותי חירום",
+    aboutTitle: "אודות המרפאה",
+    aboutText: `במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>
+    <b>אודות ד"ר ריינשטיין:</b>
+    <ul>
+      <li><b>ד"ר בנימין ריינשטיין</b> בוגר תואר DMD מהפקולטה לרפואת שיניים של האוניברסיטה העברית והדסה עין-כרם.</li>
+      <li>השתלמויות בשיקום הפה, טיפולי שורש מורכבים ועקירות כירורגיות במרכז הרפואי שיבא.</li>
+      <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
+      <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על ניהול מרפאות צבאיות.</li>
+    </ul>`,
+    servicesIntro: "המרפאה שלנו מתמחה בטיפולים הבאים:",
     services: [
-      { title: "כאבי שיניים", desc: "טיפול מיידי בכאב חד או מתמשך." },
-      { title: "שבר או נפילת שן", desc: "טיפול לאחר חבלה וטראומה דנטלי." },
-      { title: "נפיחות", desc: "טיפול בזיהומים חריפים ונפיחויות." },
-      { title: "דימומים וחתכים", desc: "טיפול בפציעות רקמות רכות." }
+      { t: "רפואת שיניים כללית", d: "בדיקות תקופתיות, ניקוי אבן וטיפולים משמרים למניעת עששת." },
+      { t: "אסתטיקה דנטלית", d: "הלבנת שיניים, ציפויי חרסינה (ויניר) ושחזורים אסתטיים לחיוך מושלם." },
+      { t: "השתלות שיניים", d: "שחזור שיניים חסרות באמצעות שתלים דנטליים בשיטות המתקדמות ביותר." },
+      { t: "שיקום הפה", d: "כתרים, גשרים ותותבות המותאמים אישית למבנה הפה והפנים." },
+      { t: "טיפולי שורש", d: "טיפולים מדויקים להצלת שיניים פגועות ושימורן לאורך זמן." },
+      { t: "רפואת שיניים לילדים", d: "טיפולים באווירה סבלנית ורגועה המותאמים במיוחד לילדים." },
+      { t: "טיפול בחניכיים", d: "מניעה וטיפול במחלות חניכיים לשמירה על יציבות השיניים." }
+    ],
+    emergencyTitle: "עזרה ראשונה דנטלית",
+    emergencyIntro: "זקוקים לעזרה דחופה? אנו מספקים מענה מהיר לכאבים חריפים בשעות הערב ובסופי שבוע.",
+    emergencyList: [
+      { t: "כאבי שיניים", d: "טיפול מיידי להקלת כאב חד או פעימות בשן." },
+      { t: "שבר או נפילת שן", d: "טיפול חירום לאחר חבלה או נפילה לשחזור השן." },
+      { t: "נפיחות וזיהום", d: "טיפול בזיהומים חריפים, דלקות ונפיחות בחניכיים." },
+      { t: "דימומים וחתכים", d: "עזרה ראשונה לפציעות ברקמות הרכות בפה." }
     ],
     contactTitle: "צור קשר",
-    phoneLabel: "טלפון:",
-    emailLabel: "אימייל:",
-    locationTitle: "מיקום",
-    footer: "© 2025 ד״ר בנימין ריינשטיין"
+    phone: "טלפון:", email: "אימייל:", location: "מיקום המרפאה", footer: "© 2025 ד״ר בנימין ריינשטיין"
   },
   en: {
     direction: "ltr",
     title: "Dr. Benjamin Reinstein",
-    subtitle: "Dental Care in Jerusalem",
-    tabEmergencies: "Dental Emergencies",
-    tabAbout: "About the Clinic",
-    waMsg: "Hi, I would like to make an appointment please.",
-    emergencyIntroTitle: "Need Urgent Assistance?",
-    emergencyIntroText: "Tooth pain doesn't wait. We provide rapid response during evenings and weekends.",
-    clinicTitle: "About Our Clinic",
-    clinicText: `
-      At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere with personal attention.<br><br>
-      <b>About Dr. Reinstein:</b>
-      <ul>
-        <li><b>Dr. Benjamin Reinstein</b> holds a DMD from the Hebrew University and Hadassah Ein Kerem.</li>
-        <li>Advanced training in oral rehabilitation and surgical extractions at Sheba Medical Center.</li>
-        <li>Member of the Israeli Association of Dental Implants.</li>
-        <li>Recipient of the IDF Medical Services Excellence Award.</li>
-      </ul>
-    `,
-    servicesTitle: "Emergency Services",
+    subtitle: "Jerusalem Dental Clinic",
+    tabs: { about: "About", services: "Services", emergency: "Emergency" },
+    waMsg: "Hi, I would like to book an appointment.",
+    aboutTitle: "About the Clinic",
+    aboutText: "Welcome to Dr. Benjamin Reinstein's clinic, where we provide advanced dental care with a focus on patient comfort and professional excellence.",
+    servicesIntro: "Our clinic specializes in the following treatments:",
     services: [
-      { title: "Tooth Pain", desc: "Urgent treatment for severe pain." },
-      { title: "Broken Tooth", desc: "Immediate care after trauma." },
-      { title: "Swelling", desc: "Treatment for infections." },
-      { title: "Oral Bleeding", desc: "Soft-tissue injury treatment." }
+      { t: "General Dentistry", d: "Routine check-ups, cleaning, and conservative treatments." },
+      { t: "Cosmetic Dentistry", d: "Teeth whitening and porcelain veneers for a beautiful smile." },
+      { t: "Dental Implants", d: "Restoring missing teeth using modern implant technology." },
+      { t: "Restoration", d: "Custom crowns, bridges, and dentures for full functionality." },
+      { t: "Root Canal Therapy", d: "Precise endodontic treatments to save damaged teeth." },
+      { t: "Pediatric Dentistry", d: "Gentle and specialized dental care for our younger patients." },
+      { t: "Periodontal Care", d: "Preventing and treating gum disease for long-term health." }
+    ],
+    emergencyTitle: "Dental Emergency",
+    emergencyIntro: "Need urgent help? We provide rapid response for tooth pain during evenings and weekends.",
+    emergencyList: [
+      { t: "Tooth Pain", d: "Immediate relief for sharp or persistent pain." },
+      { t: "Broken Tooth", d: "Emergency care for dental trauma or fractures." },
+      { t: "Swelling", d: "Treatment for acute dental infections and abscesses." },
+      { t: "Bleeding", d: "Urgent care for soft tissue injuries and bleeding." }
     ],
     contactTitle: "Contact Us",
-    phoneLabel: "Phone:",
-    emailLabel: "Email:",
-    locationTitle: "Location",
-    footer: "© 2025 Dr. Benjamin Reinstein"
+    phone: "Phone:", email: "Email:", location: "Our Location", footer: "© 2025 Dr. Benjamin Reinstein"
   },
   fr: {
     direction: "ltr",
     title: "Dr. Benjamin Reinstein",
-    subtitle: "Soins dentaires à Jérusalem",
-    tabEmergencies: "Urgences Dentaires",
-    tabAbout: "À Propos de la Clinique",
-    waMsg: "Bonjour, j'aimerai prendre rendez-vous s'il vous plait.",
-    emergencyIntroTitle: "Besoin d'aide ?",
-    emergencyIntroText: "Une rage de dents n’attend pas. Intervention rapide en soirée et le week-end.",
-    clinicTitle: "À Propos de Notre Clinique",
-    clinicText: `
-      Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue.<br><br>
-      <b>À propos du Dr Reinstein :</b>
-      <ul>
-        <li><b>Le Dr Benjamin Reinstein</b> est diplômé DMD de l'Université hébraïque.</li>
-        <li>Formations spécialisées au centre médical Sheba.</li>
-        <li>Membre de l'Association israélienne des implants dentaires.</li>
-        <li>Lauréat du prix d'excellence des services médicaux de Tsahal.</li>
-      </ul>
-    `,
-    servicesTitle: "Services d'urgence",
+    subtitle: "Clinique Dentaire Jérusalem",
+    tabs: { about: "À Propos", services: "Services", emergency: "Urgences" },
+    waMsg: "Bonjour, j'aimerais prendre rendez-vous.",
+    aboutTitle: "À Propos de la Clinique",
+    aboutText: "Soins dentaires de pointe à Jérusalem. Le Dr Reinstein est spécialisé dans les implants et l'esthétique dentaire.",
+    servicesIntro: "Notre clinique se spécialise dans les soins suivants :",
     services: [
-      { title: "Douleurs dentaires", desc: "Traitement urgent de la douleur." },
-      { title: "Dents cassées", desc: "Soins immédiats après un traumatisme." },
-      { title: "Gonflement", desc: "Traitement des infections." },
-      { title: "Saignements", desc: "Blessures des tissus oraux." }
+      { t: "Dentisterie Générale", d: "Examens de routine et soins conservateurs." },
+      { t: "Dentisterie Esthétique", d: "Blanchiment et facettes pour un sourire éclatant." },
+      { t: "Implants Dentaires", d: "Remplacement de dents manquantes par des implants." },
+      { t: "Restauration", d: "Couronnes et bridges sur mesure." },
+      { t: "Endodontie", d: "Traitements de racines précis pour sauver vos dents." },
+      { t: "Dentisterie Pédiatrique", d: "Soins doux adaptés aux enfants." },
+      { t: "Parodontologie", d: "Traitement des maladies des gencives." }
+    ],
+    emergencyTitle: "Urgences Dentaires",
+    emergencyIntro: "Besoin d'aide ? Intervention rapide en soirée et le week-end.",
+    emergencyList: [
+      { t: "Douleur Intense", d: "Soulagement immédiat de la rage de dents." },
+      { t: "Dent Cassée", d: "Restauration d'urgence après un choc." },
+      { t: "Gonflement", d: "Traitement des infections et abcès." },
+      { t: "Saignements", d: "Soins des blessures des tissus buccaux." }
     ],
     contactTitle: "Contact",
-    phoneLabel: "Téléphone:",
-    emailLabel: "Email:",
-    locationTitle: "Localisation",
-    footer: "© 2025 Dr Benjamin Reinstein"
+    phone: "Tél:", email: "Email:", location: "Localisation", footer: "© 2025 Dr. Benjamin Reinstein"
   }
 };
+
+function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach(c => c.classList.remove("active"));
+  const links = document.querySelectorAll(".tab-link");
+  links.forEach(l => l.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+  evt.currentTarget.classList.add("active");
+  window.scrollTo(0, 300);
+}
+
+function toggleMenu() {
+  const m = document.getElementById("lang-menu");
+  m.style.display = (m.style.display === "block") ? "none" : "block";
+}
 
 function setLang(lang) {
   const c = content[lang];
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
-  document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
-  document.getElementById("nav-about").innerText = c.tabAbout;
+  document.getElementById("nav-about").innerText = c.tabs.about;
+  document.getElementById("nav-services").innerText = c.tabs.services;
+  document.getElementById("nav-emergencies").innerText = c.tabs.emergency;
   document.getElementById("title").innerText = c.title;
   document.getElementById("subtitle").innerText = c.subtitle;
-  document.getElementById("emergency-intro-title").innerText = c.emergencyIntroTitle;
-  document.getElementById("emergency-intro-text").innerText = c.emergencyIntroText;
-  document.getElementById("about-clinic-title").innerText = c.clinicTitle;
-  document.getElementById("about-clinic-text").innerHTML = c.clinicText;
+  document.getElementById("about-clinic-title").innerText = c.aboutTitle;
+  document.getElementById("about-clinic-text").innerHTML = c.aboutText;
+  document.getElementById("services-main-title").innerText = c.tabs.services;
+  document.getElementById("services-main-intro").innerText = c.servicesIntro;
+  document.getElementById("services-main-list").innerHTML = c.services.map(s => `<article class="box"><h3>${s.t}</h3><p>${s.d}</p></article>`).join("");
+  document.getElementById("emergency-intro-title").innerText = c.emergencyTitle;
+  document.getElementById("emergency-intro-text").innerText = c.emergencyIntro;
+  document.getElementById("emergency-services-list").innerHTML = c.emergencyList.map(s => `<article class="box"><h3>${s.t}</h3><p>${s.d}</p></article>`).join("");
   
-  const encodedMsg = encodeURIComponent(c.waMsg);
-  document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodedMsg}`;
-
-  document.querySelectorAll(".dynamic-contact-title").forEach(el => el.innerText = c.contactTitle);
-  document.querySelectorAll(".dynamic-phone-label").forEach(el => el.innerText = c.phoneLabel);
-  document.querySelectorAll(".dynamic-email-label").forEach(el => el.innerText = c.emailLabel);
-  document.querySelectorAll(".dynamic-location-title").forEach(el => el.innerText = c.locationTitle);
-  document.querySelectorAll(".map-frame").forEach(el => el.src = MAP_URL);
-
-  document.getElementById("services-title").innerText = c.servicesTitle || "Services";
-  document.getElementById("services-list").innerHTML =
-    c.services.map(s => `
-      <div class="service-box">
-        <h3>${s.title}</h3>
-        <p>${s.desc}</p>
-      </div>
-    `).join("");
-
+  const contactHTML = `
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+    <h2>${c.contactTitle}</h2>
+    <p><strong>${c.phone}</strong> <a href="tel:0533852030" style="text-decoration:none; color:inherit;">053-385-2030</a></p>
+    <p><strong>${c.email}</strong> BenjaminReinstein@gmail.com</p>
+    <h2>${c.location}</h2>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="${MAP_URL}" allowfullscreen="" loading="lazy"></iframe>`;
+  
+  document.querySelectorAll(".contact-section").forEach(sec => sec.innerHTML = contactHTML);
   document.getElementById("footer-text").innerText = c.footer;
+  document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodeURIComponent(c.waMsg)}`;
   document.querySelector(".lang-btn").innerText = (lang === "he" ? "HE" : lang === "fr" ? "FR" : "EN") + " ▾";
+  document.getElementById("lang-menu").style.display = "none";
 }
+
+document.addEventListener("click", e => { if (!e.target.closest(".lang-dropdown")) document.getElementById("lang-menu").style.display = "none"; });
 
 setLang("he");
 </script>
-
 </body>
 </html>
