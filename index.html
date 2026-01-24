@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title id="page-title">ד״ר בנימין ריינשטיין | מרפאת שיניים בירושלים</title>
 
+<title>ד״ר בנימין ריינשטיין | מרפאת שיניים בירושלים | עזרה ראשונה</title>
 <meta name="description" content="זקוקים לרופא שיניים בירושלים? ד״ר בנימין ריינשטיין מציע טיפולי שיניים מתקדמים, השתלות וטיפולי חירום דנטליים בשעות הערב ובסופי שבוע באווירה רגועה ומקצועית.">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
@@ -31,15 +31,16 @@ body {
   color: var(--text);
 }
 
-/* LIST FIXES - Resolves the disappearing bullet points on mobile */
+/* LIST ALIGNMENT FIX (Hanging Indent) */
 ul {
-  padding: 0;
+  list-style-position: outside; /* Bullets stay in their own column */
   margin: 20px 0;
-  list-style-position: inside; /* Forces bullets to stay inside the container */
+  padding-inline-start: 25px; /* Smart padding: Right for Hebrew, Left for English */
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding-inline-start: 5px; /* Slight gap between bullet and text */
 }
 
 /* TOP BAR */
@@ -170,13 +171,8 @@ header::after {
   padding: 30px 20px;
 }
 
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 
 .services {
   display: grid;
@@ -194,8 +190,6 @@ header::after {
 
 /* RTL support */
 body.rtl { direction: rtl; }
-body.rtl ul { padding-right: 10px; } /* Small padding for RTL bullets */
-body:not(.rtl) ul { padding-left: 10px; } /* Small padding for LTR bullets */
 
 /* FLOATING WHATSAPP */
 .whatsapp-float {
@@ -298,7 +292,7 @@ function openTab(evt, tabId) {
     tablinks[i].classList.remove("active");
   }
   document.getElementById(tabId).classList.add("active");
-  evt.currentTarget.classList.add("active");
+  if (evt) evt.currentTarget.classList.add("active");
 }
 
 function toggleMenu() {
@@ -312,7 +306,8 @@ document.addEventListener("click", e => {
   }
 });
 
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.644485748231!2d35.2185526!3d31.7801833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d726b2890521%3A0xc3f587936a54056a!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000"; 
+// Shamai 14, Jerusalem
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.7456743907724!2d35.2185412!3d31.7803328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d73359d99723%3A0xc68291475513220!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000!5m2!1sen!2sil"; 
 
 const content = {
   he: {
@@ -349,7 +344,6 @@ const content = {
     locationTitle: "מיקום",
     footer: "© 2025 ד״ר בנימין ריינשטיין"
   },
-
   en: {
     direction: "ltr",
     title: "Dr. Benjamin Reinstein",
@@ -358,11 +352,10 @@ const content = {
     tabAbout: "About the Clinic",
     waMsg: "Hi, I would like to make an appointment please.",
     emergencyIntroTitle: "Need Urgent Assistance?",
-    emergencyIntroText: "Tooth pain doesn't wait for regular office hours. We are here to provide a rapid response during evenings and weekends.",
+    emergencyIntroText: "Tooth pain doesn't wait. We provide rapid response during evenings and weekends.",
     clinicTitle: "About Our Clinic",
     clinicText: `
       At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere with personal attention.<br><br>
-      We specialize in restorative treatments, rehabilitation, surgery, and implants using state-of-the-art equipment.<br><br>
       <b>About Dr. Reinstein:</b>
       <ul>
         <li><b>Dr. Benjamin Reinstein</b> holds a DMD from the Hebrew University and Hadassah Ein Kerem.</li>
@@ -373,9 +366,9 @@ const content = {
     `,
     servicesTitle: "Emergency Services",
     services: [
-      { title: "Tooth Pain", desc: "Urgent treatment for severe or sudden pain." },
-      { title: "Broken Tooth", desc: "Immediate care after dental trauma." },
-      { title: "Swelling", desc: "Treatment for infections and acute swelling." },
+      { title: "Tooth Pain", desc: "Urgent treatment for severe pain." },
+      { title: "Broken Tooth", desc: "Immediate care after trauma." },
+      { title: "Swelling", desc: "Treatment for infections." },
       { title: "Oral Bleeding", desc: "Soft-tissue injury treatment." }
     ],
     contactTitle: "Contact Us",
@@ -384,7 +377,6 @@ const content = {
     locationTitle: "Location",
     footer: "© 2025 Dr. Benjamin Reinstein"
   },
-
   fr: {
     direction: "ltr",
     title: "Dr. Benjamin Reinstein",
@@ -392,16 +384,15 @@ const content = {
     tabEmergencies: "Urgences Dentaires",
     tabAbout: "À Propos de la Clinique",
     waMsg: "Bonjour, j'aimerai prendre rendez-vous s'il vous plait.",
-    emergencyIntroTitle: "Besoin d'aide urgente ?",
-    emergencyIntroText: "Une rage de dents n’attend pas. Nous sommes là pour offrir une intervention rapide en soirée et le week-end.",
+    emergencyIntroTitle: "Besoin d'aide ?",
+    emergencyIntroText: "Une rage de dents n’attend pas. Intervention rapide en soirée et le week-end.",
     clinicTitle: "À Propos de Notre Clinique",
     clinicText: `
       Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une ambiance détendue.<br><br>
-      Nous nous spécialisons dans les soins conservateurs, la réhabilitation, la chirurgie et les implants.<br><br>
       <b>À propos du Dr Reinstein :</b>
       <ul>
-        <li><b>Le Dr Benjamin Reinstein</b> est diplômé DMD de l'Université hébraïque et d'Hadassah Ein Kerem.</li>
-        <li>Formations spécialisées en réhabilitation orale et chirurgie au centre médical Sheba.</li>
+        <li><b>Le Dr Benjamin Reinstein</b> est diplômé DMD de l'Université hébraïque.</li>
+        <li>Formations spécialisées au centre médical Sheba.</li>
         <li>Membre de l'Association israélienne des implants dentaires.</li>
         <li>Lauréat du prix d'excellence des services médicaux de Tsahal.</li>
       </ul>
@@ -424,7 +415,6 @@ const content = {
 function setLang(lang) {
   const c = content[lang];
   document.body.className = (c.direction === "rtl") ? "rtl" : "";
-  
   document.getElementById("nav-emergencies").innerText = c.tabEmergencies;
   document.getElementById("nav-about").innerText = c.tabAbout;
   document.getElementById("title").innerText = c.title;
