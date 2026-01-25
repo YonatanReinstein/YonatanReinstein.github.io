@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3RHYG00Q87"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3RHYG00Q87');
+</script>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -55,7 +64,6 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* CENTERED 3-COLUMN GRID */
 .grid-list {  
   display: flex;  
   flex-wrap: wrap;  
@@ -184,7 +192,7 @@ const content = {
     tabs: { about: "About the Clinic", services: "Services", emergency: "Emergency" },
     waMsg: "Hi, I would like to book an appointment.",
     aboutTitle: "About the Clinic",
-    aboutText: `At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere.<br><br><b>About Dr. Benjamin Reinstein:</b><ul><li><b>Dr. Reinstein</b> holds a DMD from the <b>Hebrew University and Hadassah Ein Kerem<b/>.</li><li>Graduated from advanced training in oral rehabilitation, complex root canal therapy and surgical extractions in various dental departments at the <b>Sheba Medical Center</b>.</li><li>Member of the Israeli Association of Dental Implants.</li><li>Recipient of the IDF Medical Services Excellence Award.</li></ul>`,
+    aboutText: `At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere.<br><br><b>About Dr. Benjamin Reinstein:</b><ul><li><b>Dr. Reinstein</b> holds a DMD from the <b>Hebrew University and Hadassah Ein Kerem</b>.</li><li>Graduated from advanced training in oral rehabilitation, complex root canal therapy and surgical extractions in various dental departments at the <b>Sheba Medical Center</b>.</li><li>Member of the Israeli Association of Dental Implants.</li><li>Recipient of the IDF Medical Services Excellence Award.</li></ul>`,
     servicesIntro: "Our clinic specializes in the following treatments:",
     services: [
       { t: "General Dentistry", d: "Routine check-ups, cleaning, and conservative treatments." },
@@ -228,7 +236,7 @@ const content = {
     emergencyList: [
       { t: "Douleur Intense", d: "Soulagement immédiat de la rage de dents." },
       { t: "Dent Cassée", d: "Restauration après un choc." },
-      { t: "Gonflement", d: "Traitement des infections et abcès." },
+      { t: "Gonflement", d: "Traitement des infections and abcès." },
       { t: "Saignements", d: "Soins des blessures buccales." }
     ],
     contact: "Contact", phone: "Tél:", email: "Email:", location: "Localisation", footer: "© 2025 Dr. Benjamin Reinstein"
