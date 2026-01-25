@@ -9,7 +9,7 @@
 
   gtag('config', 'G-3RHYG00Q87');
 
-  // Custom function to track WhatsApp clicks
+  // Tracking function for WhatsApp
   function trackWhatsApp() {
     gtag('event', 'whatsapp_click', {
       'event_category': 'Contact',
@@ -253,10 +253,19 @@ const content = {
 };
 
 function openTab(evt, tabId) {
+  // Switch visual tabs
   document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
   document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
   document.getElementById(tabId).classList.add("active");
   evt.currentTarget.classList.add("active");
+  
+  // Send virtual page view to Google Analytics
+  const sectionTitle = document.getElementById(tabId).querySelector('h2').innerText;
+  gtag('event', 'page_view', {
+    page_title: sectionTitle,
+    page_location: window.location.href + '#' + tabId
+  });
+
   window.scrollTo(0, 300);
 }
 
