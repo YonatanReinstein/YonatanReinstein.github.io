@@ -31,72 +31,59 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth;
 :root { --bg-light: #f4f7ff; --primary: #0056b3; --text: #333; --radius: 14px; }
 body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); }
 
-/* LIST ALIGNMENT (Hanging Indent) */
 ul { list-style-position: outside; margin: 20px 0; padding-inline-start: 25px; }
 li { margin-bottom: 12px; padding-inline-start: 5px; }
 
-/* TOP BAR */
 .topbar { width: 100vw; background: white; border-bottom: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; direction: ltr !important; }
 .top-phone { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
 .lang-btn { padding: 8px 18px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: white; font-weight: 600; }
 .lang-menu { display: none; position: absolute; left: 20px; background: white; border: 1px solid #ccc; border-radius: 8px; margin-top: 5px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 .lang-menu button { background: none; border: none; padding: 12px 20px; width: 100%; text-align: left; cursor: pointer; border-bottom: 1px solid #eee; }
 
-/* HERO SECTION */
 header { width: 100vw; height: 350px; position: relative; overflow: hidden; }
 header video { width: 100%; height: 100%; object-fit: cover; }
 header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
 .header-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; z-index: 2; width: 90%; }
 .header-content h1 { margin: 0; font-size: 2.3rem; }
 
-/* NAVIGATION TABS (ENLARGED) */
 .tabs-nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; position: sticky; top: 0; z-index: 100; }
 .tab-link { padding: 20px 25px; cursor: pointer; border: none; background: none; font-size: 1.1rem; font-weight: 700; color: #666; transition: 0.3s; border-bottom: 4px solid transparent; }
 .tab-link.active { color: var(--primary); border-bottom: 4px solid var(--primary); }
 
-/* MAIN CONTAINER */
 .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
 .tab-content { display: none; animation: fadeIn 0.4s ease; }
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* GRID SYSTEM (3-COLUMN FLEX WITH CENTERED LAST BOX) */
-.grid-list { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; /* Centers the boxes in the row */
-  gap: 22px; 
-  margin-top: 30px; 
+/* CENTERED 3-COLUMN GRID */
+.grid-list {  
+  display: flex;  
+  flex-wrap: wrap;  
+  justify-content: center; 
+  gap: 22px;  
+  margin-top: 30px;  
 }
-.box { 
-  background: white; 
-  padding: 25px; 
-  border-radius: var(--radius); 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-  text-align: center; 
-  flex: 0 1 calc(33.333% - 22px); /* Attempts 3 columns */
-  min-width: 280px; /* Prevents them from getting too skinny */
-  transition: 0.2s; 
-  border: 1px solid transparent; 
+.box {  
+  background: white;  
+  padding: 25px;  
+  border-radius: var(--radius);  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);  
+  text-align: center;  
+  flex: 0 1 calc(33.333% - 22px); 
+  min-width: 280px; 
+  transition: 0.2s;  
+  border: 1px solid transparent;  
   box-sizing: border-box;
 }
 .box:hover { border-color: var(--primary); transform: translateY(-3px); }
 .box h3 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
 
-/* RTL SUPPORT */
 body.rtl { direction: rtl; }
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
 .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-@media (max-width: 900px) {
-  .box { flex: 0 1 calc(50% - 22px); } /* 2 columns on medium screens */
-}
-
-@media (max-width: 600px) {
-  .header-content h1 { font-size: 1.8rem; }
-  .tab-link { padding: 15px 10px; font-size: 0.9rem; }
-  .box { flex: 1 1 100%; } /* 1 column on mobile */
-}
+@media (max-width: 900px) { .box { flex: 0 1 calc(50% - 22px); } }
+@media (max-width: 600px) { .box { flex: 1 1 100%; } }
 </style>
 </head>
 
@@ -159,7 +146,7 @@ body.rtl { direction: rtl; }
 </a>
 
 <script>
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.235650171638!2d35.2172159757657!3d31.78119107412762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d7455d3f27%3A0xc6c76891a97d195a!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000";
+const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.5644158913434!2d35.2185573!3d31.7823933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7293a7d32c5%3A0x1d365f57b6f65977!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1710000000000!5m2!1sen!2sil";
 
 const content = {
   he: {
@@ -227,7 +214,7 @@ const content = {
     aboutTitle: "À Propos",
     aboutText: `Dans notre clinique, vous bénéficierez de soins dentaires de pointe.<br><br><b>À propos du Dr. Benjamin Reinstein :</b><ul><li><b>Le Dr. Reinstein</b> est diplômé DMD de <b>l'Université hébraïque de Jérusalem et de Hadassah Ein Kerem</b>.</li><li>Titulaire de formations spécialisées en réhabilitation orale, en traitements endodontiques complexes et en extractions chirurgicales dans les différents services de médecine dentaire du <b>centre médical Sheba</b>.</li><li>Membre de l'Association israélienne des implants dentaires.</li><li>Lauréat du prix d'excellence des services médicaux de Tsahal.</li></ul>`,
     servicesIntro: "Notre clinique se spécialise dans les soins suivants :",
-    services:
+    services: [
       { t: "Dentisterie Générale", d: "Examens de routine et soins conservateurs." },
       { t: "Dentisterie Esthétique", d: "Blanchiment et facettes." },
       { t: "Implants Dentaires", d: "Remplacement de dents par implants." },
