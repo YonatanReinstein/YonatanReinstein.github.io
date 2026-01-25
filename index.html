@@ -8,6 +8,15 @@
   gtag('js', new Date());
 
   gtag('config', 'G-3RHYG00Q87');
+
+  // Custom function to track WhatsApp clicks
+  function trackWhatsApp() {
+    gtag('event', 'whatsapp_click', {
+      'event_category': 'Contact',
+      'event_label': 'Floating Button',
+      'value': 1
+    });
+  }
 </script>
 
 <meta charset="UTF-8" />
@@ -149,7 +158,7 @@ body.rtl { direction: rtl; }
   <span id="footer-text"></span>
 </footer>
 
-<a href="#" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener">
+<a href="#" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener" onclick="trackWhatsApp()">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
