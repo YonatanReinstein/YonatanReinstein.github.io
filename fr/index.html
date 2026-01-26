@@ -11,10 +11,12 @@
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dr. Benjamin Reinstein | Dentiste à Jérusalem | Urgences et Implants</title>
-<meta name="description" content="Cherchez-vous un dentiste à Jérusalem ? Le Dr. Benjamin Reinstein propose des soins dentaires avancés, des implants et des urgences.">
+<title>Dr. Benjamin Reinstein | Dentiste à Jérusalem</title>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M50,10 Q70,10 80,30 Q90,50 80,70 Q70,90 50,85 Q30,90 20,70 Q10,50 20,30 Q30,10 50,10 Z%22 fill=%22%230056b3%22/><circle cx=%2240%22 cy=%2240%22 r=%225%22 fill=%22white%22/><circle cx=%2260%22 cy=%2240%22 r=%225%22 fill=%22white%22/></svg>">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
@@ -39,11 +41,12 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 .tab-content { display: none; animation: fadeIn 0.4s ease; }
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.grid-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 30px; }
+.grid-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin: 20px 0; }
 .box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; flex: 0 1 calc(33.333% - 22px); min-width: 280px; border: 1px solid transparent; box-sizing: border-box; }
 .box h3 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
 .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; }
 @media (max-width: 900px) { .box { flex: 0 1 calc(50% - 22px); } }
 @media (max-width: 600px) { .box { flex: 1 1 100%; } }
 </style>
@@ -72,42 +75,34 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 <main class="container">
   <section id="about-tab" class="tab-content active">
     <h2>À Propos de la Clinique</h2>
-    <p>Dans notre clinique, vous bénéficierez de soins dentaires de pointe dans une atmosphère détendue, avec une attention particulière portée au confort du patient. Nous nous spécialisons dans les traitements conservateurs, la rééducation, la chirurgie et les implants à l'aide d'équipements modernes.</p>
+    <p>Soins dentaires de pointe dans une atmosphère détendue.</p>
     <p><b>À propos du Dr. Benjamin Reinstein :</b></p>
     <ul>
-      <li>Le <b>Dr. Reinstein</b> est diplômé DMD de la Faculté de médecine dentaire de <b>l'Université hébraïque et Hadassah Ein Kerem</b>.</li>
-      <li>Diplômé de formations avancées en réhabilitation orale, traitements endodontiques complexes et extractions chirurgicales au <b>centre médical Sheba</b>.</li>
+      <li>DMD de l'<b>Université hébraïque et Hadassah Ein Kerem</b>.</li>
+      <li>Spécialisation à <b>Sheba Medical Center</b>.</li>
       <li>Membre de l'Association israélienne des implants dentaires.</li>
-      <li>Lauréat du prix d'excellence des services médicaux de Tsahal pour la gestion des cliniques dentaires militaires.</li>
+      <li>Prix d'excellence de Tsahal.</li>
     </ul>
-    <h2>Contact</h2>
-    <p><b>Tél:</b> 053-385-2030</p>
-    <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
-    <h2>Localisation</h2>
-    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.2155!2d35.2137!3d31.7683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA1LjkiTiAzNcKwMTInNDkuMyJF!5e0!3m2!1sen!2sil!4v1620000000000!5m2!1sen!2sil" loading="lazy"></iframe>
   </section>
   <section id="services-tab" class="tab-content">
     <h2>Nos Spécialités :</h2>
     <div class="grid-list">
-      <div class="box"><h3>Dentisterie Générale</h3><p>Examens de routine, détartrage et soins conservateurs.</p></div>
-      <div class="box"><h3>Dentisterie Esthétique</h3><p>Blanchiment, facettes et restaurations esthétiques.</p></div>
-      <div class="box"><h3>Implants Dentaires</h3><p>Remplacement de dents manquantes par implants.</p></div>
-      <div class="box"><h3>Réhabilitation Orale</h3><p>Couronnes, bridges et prothèses sur mesure.</p></div>
-      <div class="box"><h3>Endodontie</h3><p>Traitements de racines précis pour sauver les dents.</p></div>
-      <div class="box"><h3>Parodontologie</h3><p>Prévention et traitement des maladies des gencives.</p></div>
-      <div class="box"><h3>Dentisterie Pédiatrique</h3><p>Soins doux adaptés aux enfants.</p></div>
+      <div class="box"><h3>Générale</h3><p>Détartrage et examens.</p></div>
+      <div class="box"><h3>Esthétique</h3><p>Blanchiment et facettes.</p></div>
+      <div class="box"><h3>Implants</h3><p>Remplacement de dents.</p></div>
     </div>
   </section>
   <section id="emergencies-tab" class="tab-content">
     <h2>Services d'urgence</h2>
-    <p>Besoin d'aide ? Nous fournissons une réponse rapide le soir et le week-end.</p>
-    <div class="grid-list">
-      <div class="box"><h3>Douleur Dentaire</h3><p>Soulagement immédiat d'une douleur vive.</p></div>
-      <div class="box"><h3>Dent Cassée</h3><p>Soins d'urgence suite à un choc.</p></div>
-      <div class="box"><h3>Gonflement</h3><p>Traitement des infections et des inflammations.</p></div>
-      <div class="box"><h3>Saignements</h3><p>Premiers secours pour les blessures buccales.</p></div>
-    </div>
+    <p>Réponse rapide soir et week-end.</p>
   </section>
+  <div class="footer-info">
+    <h2>Contact</h2>
+    <p><b>Tél:</b> 053-385-2030</p>
+    <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
+    <h2>Localisation</h2>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.871587522533!2d35.2120!3d31.7719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzE4LjgiTiAzNcKwMTInNDMuMiJF!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
+  </div>
 </main>
 <footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">© 2025 Dr. Benjamin Reinstein</footer>
 <a href="https://wa.me/972533852030?text=Bonjour, j'aimerais prendre rendez-vous." class="whatsapp-float" target="_blank" onclick="trackWhatsApp()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
