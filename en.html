@@ -9,39 +9,18 @@
   gtag('config', 'G-3RHYG00Q87');
   function trackWhatsApp() { gtag('event', 'whatsapp_click', { 'event_category': 'Contact', 'event_label': 'Floating Button', 'value': 1 }); }
 </script>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>Dr. Benjamin Reinstein | Dentist in Jerusalem | Emergency & Implants</title>
-<meta name="description" content="Best dentist in Jerusalem? Dr. Benjamin Reinstein provides expert dental implants, emergency care, and aesthetic dentistry in a professional environment.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Dentist",
-  "name": "Dr. Benjamin Reinstein",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Shamai 14",
-    "addressLocality": "Jerusalem",
-    "addressCountry": "IL"
-  },
-  "telephone": "+972-53-385-2030",
-  "url": "https://www.dentalclinic.co.il/en.html"
-}
-</script>
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
-
+<meta name="description" content="Looking for a dentist in Jerusalem? Dr. Benjamin Reinstein offers advanced dental treatments, implants, and emergency care.">
 <style>
-/* ... SAME STYLE AS index.html ... */
+/* CSS copied from Hebrew, direction set to LTR */
 html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
 :root { --bg-light: #f4f7ff; --primary: #0056b3; --text: #333; --radius: 14px; }
-body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); }
+body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); direction: ltr; }
 ul { list-style-position: outside; margin: 20px 0; padding-inline-start: 25px; }
-li { margin-bottom: 12px; padding-inline-start: 5px; }
-.topbar { width: 100vw; background: white; border-bottom: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; direction: ltr !important; }
+li { margin-bottom: 12px; }
+.topbar { width: 100vw; background: white; border-bottom: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
 .top-phone { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
 .lang-btn { padding: 8px 18px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: white; font-weight: 600; }
 .lang-menu { display: none; position: absolute; left: 20px; background: white; border: 1px solid #ccc; border-radius: 8px; margin-top: 5px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -59,8 +38,7 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .grid-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 30px; }
-.box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; flex: 0 1 calc(33.333% - 22px); min-width: 280px; transition: 0.2s; border: 1px solid transparent; box-sizing: border-box; }
-.box:hover { border-color: var(--primary); transform: translateY(-3px); }
+.box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; flex: 0 1 calc(33.333% - 22px); min-width: 280px; border: 1px solid transparent; box-sizing: border-box; }
 .box h3 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
 .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
@@ -68,97 +46,70 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 @media (max-width: 600px) { .box { flex: 1 1 100%; } }
 </style>
 </head>
-
 <body>
-
 <div class="topbar">
   <div class="lang-dropdown">
     <button class="lang-btn" onclick="toggleMenu()">EN ▾</button>
     <div class="lang-menu" id="lang-menu">
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('he')">עברית</button>
-      <button onclick="setLang('fr')">Français</button>
+      <button onclick="window.location.href='en.html'">English</button>
+      <button onclick="window.location.href='index.html'">עברית</button>
+      <button onclick="window.location.href='fr.html'">Français</button>
     </div>
   </div>
   <a href="tel:0533852030" class="top-phone">053-385-2030</a>
 </div>
-
 <header>
   <video autoplay muted loop playsinline><source src="video.mp4" type="video/mp4"></video>
-  <div class="header-content">
-    <h1 id="title"></h1>
-    <p class="subtitle" id="subtitle"></p>
-  </div>
+  <div class="header-content"><h1>Dr. Benjamin Reinstein</h1><p>Jerusalem Dental Clinic</p></div>
 </header>
-
 <nav class="tabs-nav">
-  <button class="tab-link active" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
-  <button class="tab-link" onclick="openTab(event, 'services-tab')" id="nav-services"></button>
-  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
+  <button class="tab-link active" onclick="openTab(event, 'about-tab')">About</button>
+  <button class="tab-link" onclick="openTab(event, 'services-tab')">Services</button>
+  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')">Emergency</button>
 </nav>
-
 <main class="container">
   <section id="about-tab" class="tab-content active">
-    <h2 id="about-clinic-title"></h2>
-    <div id="about-clinic-text"></div>
-    <div class="contact-section"></div>
+    <h2>About the Clinic</h2>
+    <p>At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere, with personal attention and an emphasis on patient comfort. We specialize in conservative treatments, rehabilitation, surgery, and implants using modern equipment to improve your treatment experience and smile aesthetics.</p>
+    <p><b>About Dr. Benjamin Reinstein:</b></p>
+    <ul>
+      <li><b>Dr. Reinstein</b> holds a DMD from the Faculty of Dental Medicine of the <b>Hebrew University and Hadassah Ein Kerem</b>.</li>
+      <li>Graduated from advanced training in oral rehabilitation, complex root canal therapy, and surgical extractions at <b>Sheba Medical Center</b>.</li>
+      <li>Member of the Israeli Association of Dental Implants.</li>
+      <li>Recipient of the IDF Medical Services Excellence Award for managing military dental clinics.</li>
+    </ul>
+    <h2>Contact Us</h2>
+    <p><b>Phone:</b> 053-385-2030</p>
+    <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
+    <h2>Location</h2>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.20455806655!2d35.21855907573523!3d31.78253167409477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d73307613587%3A0x679093844f23b7e2!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
   </section>
   <section id="services-tab" class="tab-content">
-    <h2 id="services-main-title"></h2>
-    <p id="services-main-intro"></p>
-    <div id="services-main-list" class="grid-list"></div>
-    <div class="contact-section"></div>
+    <h2>Our Specialties:</h2>
+    <div class="grid-list">
+      <div class="box"><h3>General Dentistry</h3><p>Routine check-ups, cleaning, and conservative treatments.</p></div>
+      <div class="box"><h3>Cosmetic Dentistry</h3><p>Teeth whitening, porcelain veneers, and restorations.</p></div>
+      <div class="box"><h3>Dental Implants</h3><p>Restoring missing teeth using advanced implant methods.</p></div>
+      <div class="box"><h3>Oral Rehabilitation</h3><p>Customized crowns, bridges, and dentures.</p></div>
+      <div class="box"><h3>Root Canal Therapy</h3><p>Precise treatments to save damaged teeth.</p></div>
+      <div class="box"><h3>Periodontal Care</h3><p>Prevention and treatment of gum disease.</p></div>
+      <div class="box"><h3>Pediatric Dentistry</h3><p>Gentle care tailored for children.</p></div>
+    </div>
   </section>
   <section id="emergencies-tab" class="tab-content">
-    <h2 id="emergency-intro-title"></h2>
-    <p id="emergency-intro-text"></p>
-    <div id="emergency-services-list" class="grid-list"></div>
-    <div class="contact-section"></div>
+    <h2>Emergency Care</h2>
+    <p>Need urgent help? We provide rapid response during evenings and weekends.</p>
+    <div class="grid-list">
+      <div class="box"><h3>Tooth Pain</h3><p>Immediate relief for sharp or throbbing pain.</p></div>
+      <div class="box"><h3>Broken Tooth</h3><p>Emergency care following trauma.</p></div>
+      <div class="box"><h3>Swelling</h3><p>Treatment for acute infections and inflammation.</p></div>
+      <div class="box"><h3>Bleeding</h3><p>First aid for oral tissue injuries.</p></div>
+    </div>
   </section>
 </main>
-
-<footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">
-  <span id="footer-text"></span>
-</footer>
-
-<a href="#" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener" onclick="trackWhatsApp()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
-
+<footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">© 2025 Dr. Benjamin Reinstein</footer>
+<a href="https://wa.me/972533852030?text=Hi, I would like to book an appointment." class="whatsapp-float" target="_blank" onclick="trackWhatsApp()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
 <script>
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.879793132717!2d35.218559!3d31.781111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7da69623145%3A0xe54226f30d075402!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000";
-
-const content = {
-  en: {
-    direction: "ltr",
-    title: "Dr. Benjamin Reinstein",
-    subtitle: "Jerusalem Dental Clinic",
-    tabs: { about: "About the Clinic", services: "Services", emergency: "Emergency" },
-    waMsg: "Hi, I would like to book an appointment.",
-    aboutTitle: "About the Clinic",
-    aboutText: `At our clinic, you will enjoy advanced dental treatments in a relaxed atmosphere.<br><br><b>About Dr. Benjamin Reinstein:</b><ul><li>DMD from the <b>Hebrew University and Hadassah Ein Kerem</b>.</li><li>Advanced training in oral rehabilitation and surgical extractions at <b>Sheba Medical Center</b>.</li><li>Member of the Israeli Association of Dental Implants.</li></ul>`,
-    servicesIntro: "Our clinic specializes in the following treatments:",
-    services: [
-      { t: "General Dentistry", d: "Routine check-ups and cleanings." },
-      { t: "Cosmetic Dentistry", d: "Teeth whitening and veneers." },
-      { t: "Dental Implants", d: "Restoring missing teeth using modern tech." },
-      { t: "Restoration", d: "Custom crowns and bridges." },
-      { t: "Root Canal Therapy", d: "Precise treatments to save teeth." },
-      { t: "Periodontal Care", d: "Preventing and treating gum disease." },
-      { t: "Pediatric Dentistry", d: "Gentle care for children." }
-    ],
-    emergencyTitle: "Emergency Services",
-    emergencyIntro: "Need urgent help? Rapid response during evenings and weekends.",
-    emergencyList: [
-      { t: "Tooth Pain", d: "Immediate relief for sharp pain." },
-      { t: "Broken Tooth", d: "Emergency care for trauma." },
-      { t: "Swelling", d: "Treatment for acute infections." },
-      { t: "Oral Bleeding", d: "Urgent care for injuries." }
-    ],
-    contact: "Contact Us", phone: "Phone:", email: "Email:", location: "Location", footer: "© 2025 Dr. Benjamin Reinstein"
-  }
-};
-
 function openTab(evt, tabId) {
   document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
   document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
@@ -166,40 +117,11 @@ function openTab(evt, tabId) {
   evt.currentTarget.classList.add("active");
   window.scrollTo(0, 300);
 }
-
 function toggleMenu() {
   const m = document.getElementById("lang-menu");
   m.style.display = (m.style.display === "block") ? "none" : "block";
 }
-
-function setLang(lang) {
-  if (lang === 'he') { window.location.href = 'index.html'; return; }
-  if (lang === 'fr') { window.location.href = 'fr.html'; return; }
-  
-  const c = content['en'];
-  document.body.className = "ltr";
-  document.getElementById("nav-about").innerText = c.tabs.about;
-  document.getElementById("nav-services").innerText = c.tabs.services;
-  document.getElementById("nav-emergencies").innerText = c.tabs.emergency;
-  document.getElementById("title").innerText = c.title;
-  document.getElementById("subtitle").innerText = c.subtitle;
-  document.getElementById("about-clinic-title").innerText = c.aboutTitle;
-  document.getElementById("about-clinic-text").innerHTML = c.aboutText;
-  document.getElementById("services-main-title").innerText = c.tabs.services;
-  document.getElementById("services-main-intro").innerText = c.servicesIntro;
-  document.getElementById("services-main-list").innerHTML = c.services.map(s => `<div class="box"><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
-  document.getElementById("emergency-intro-title").innerText = c.emergencyTitle;
-  document.getElementById("emergency-intro-text").innerText = c.emergencyIntro;
-  document.getElementById("emergency-services-list").innerHTML = c.emergencyList.map(s => `<div class="box"><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
-  
-  const contactHTML = `<h2>${c.contact}</h2><p><strong>${c.phone}</strong> 053-385-2030</p><p><strong>${c.email}</strong> BenjaminReinstein@gmail.com</p><h2>${c.location}</h2><iframe width="100%" height="350" style="border:0;border-radius:14px;" src="${MAP_URL}" loading="lazy"></iframe>`;
-  document.querySelectorAll(".contact-section").forEach(sec => sec.innerHTML = contactHTML);
-  document.getElementById("footer-text").innerText = c.footer;
-  document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodeURIComponent(c.waMsg)}`;
-}
-
 document.addEventListener("click", e => { if (!e.target.closest(".lang-dropdown")) document.getElementById("lang-menu").style.display = "none"; });
-setLang("en");
 </script>
 </body>
 </html>
