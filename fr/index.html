@@ -12,13 +12,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dr. Benjamin Reinstein | Clinique Dentaire Jérusalem</title>
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-
 <style>
+/* CSS remains exactly the same as Hebrew but with direction: ltr */
 html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
 :root { --bg-light: #f4f7ff; --primary: #0056b3; --text: #333; --radius: 14px; }
 body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); direction: ltr; }
@@ -56,9 +55,9 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
   <div class="lang-dropdown">
     <button class="lang-btn" onclick="toggleMenu()">FR ▾</button>
     <div class="lang-menu" id="lang-menu">
-      <button onclick="window.location.href='/en/'">English</button>
-      <button onclick="window.location.href='/'">Hébreu</button>
-      <button onclick="window.location.href='/fr/'">Français</button>
+      <button onclick="changeLang('/en/')">English</button>
+      <button onclick="changeLang('/')">עברית</button>
+      <button onclick="changeLang('/fr/')">Français</button>
     </div>
   </div>
   <a href="tel:0533852030" class="top-phone">053-385-2030</a>
@@ -68,11 +67,10 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
   <div class="header-content"><h1>Dr. Benjamin Reinstein</h1><p>Clinique dentaire à Jérusalem</p></div>
 </header>
 <nav class="tabs-nav">
-  <button class="tab-link active" onclick="openTab(event, 'about-tab')">À Propos</button>
-  <button class="tab-link" onclick="openTab(event, 'services-tab')">Services</button>
-  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')">Urgences</button>
+  <button id="btn-about-tab" class="tab-link active" onclick="openTab(event, 'about-tab')">À Propos</button>
+  <button id="btn-services-tab" class="tab-link" onclick="openTab(event, 'services-tab')">Services</button>
+  <button id="btn-emergencies-tab" class="tab-link" onclick="openTab(event, 'emergencies-tab')">Urgences</button>
 </nav>
-
 <main class="container">
   <section id="about-tab" class="tab-content active">
     <h2>À Propos de la Clinique</h2>
@@ -85,7 +83,6 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <li>Récipiendaire du prix d'excellence des services médicaux de Tsahal pour la gestion de cliniques militaires.</li>
     </ul>
   </section>
-
   <section id="services-tab" class="tab-content">
     <h2>Nos Spécialités</h2>
     <div class="grid-list">
@@ -98,7 +95,6 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <div class="box"><h3>Dentisterie Pédiatrique</h3><p>Traitements dans une ambiance patiente et calme adaptée aux enfants.</p></div>
     </div>
   </section>
-
   <section id="emergencies-tab" class="tab-content">
     <h2>Urgences Dentaires</h2>
     <p>Besoin d'une aide urgente ? Nous offrons une réponse rapide aux douleurs aiguës le soir et le week-end.</p>
@@ -109,30 +105,38 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <div class="box"><h3>Saignement</h3><p>Premiers soins pour les blessures aux tissus buccaux.</p></div>
     </div>
   </section>
-
   <div class="footer-info">
     <h2>Contactez-nous</h2>
     <p><b>Téléphone:</b> 053-385-2030</p>
     <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
     <h2>Localisation</h2>
-    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.215574510344!2d35.2104!3d31.7719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzE4LjgiTiAzNcKwMTInMzcuNCJF!5e0!3m2!1sen!2sil!4v1620000000000!5m2!1sen!2sil" loading="lazy"></iframe>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.208152431792!2d35.20915337532321!3d31.76483497410398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d91986427d%3A0xc669a47317765664!2sKeren%20HaYesod%20St%2019%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
   </div>
 </main>
-
 <footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">© 2025 Dr. Benjamin Reinstein</footer>
 <a href="https://wa.me/972533852030?text=Bonjour, j'aimerais prendre rendez-vous." class="whatsapp-float" target="_blank" onclick="trackWhatsApp()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-
 <script>
+let currentTabId = 'about-tab';
 function openTab(evt, tabId) {
+  currentTabId = tabId;
   document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
   document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
   document.getElementById(tabId).classList.add("active");
-  evt.currentTarget.classList.add("active");
+  if(evt) evt.currentTarget.classList.add("active");
+  else document.getElementById('btn-' + tabId).classList.add("active");
 }
 function toggleMenu() {
   const m = document.getElementById("lang-menu");
   m.style.display = (m.style.display === "block") ? "none" : "block";
 }
+function changeLang(url) {
+  window.location.href = url + "?tab=" + currentTabId;
+}
+window.onload = function() {
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+  if (tab) openTab(null, tab);
+};
 document.addEventListener("click", e => { if (!e.target.closest(".lang-dropdown")) document.getElementById("lang-menu").style.display = "none"; });
 </script>
 </body>
