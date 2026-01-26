@@ -9,37 +9,16 @@
   gtag('config', 'G-3RHYG00Q87');
   function trackWhatsApp() { gtag('event', 'whatsapp_click', { 'event_category': 'Contact', 'event_label': 'Floating Button', 'value': 1 }); }
 </script>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>ד״ר בנימין ריינשטיין | מרפאת שיניים בירושלים | עזרה ראשונה והשתלות</title>
 <meta name="description" content="זקוקים לרופא שיניים בירושלים? ד״ר בנימין ריינשטיין מציע טיפולי שיניים מתקדמים, השתלות וטיפולי חירום דנטליים בשעות הערב ובסופי שבוע באווירה רגועה ומקצועית.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Dentist",
-  "name": "Dr. Benjamin Reinstein - ד״ר בנימין ריינשטיין",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Shamai 14",
-    "addressLocality": "Jerusalem",
-    "addressCountry": "IL"
-  },
-  "telephone": "+972-53-385-2030",
-  "url": "https://www.dentalclinic.co.il/"
-}
-</script>
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M30,20 Q50,10 70,20 Q85,30 80,50 Q75,85 50,90 Q25,85 20,50 Q15,30 30,20 Z%22 fill=%22none%22 stroke=%22%230056b3%22 stroke-width=%225%22/></svg>">
- 
 <style>
 html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
 :root { --bg-light: #f4f7ff; --primary: #0056b3; --text: #333; --radius: 14px; }
-body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); }
+body { background: var(--bg-light); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.6; color: var(--text); direction: rtl; }
 ul { list-style-position: outside; margin: 20px 0; padding-inline-start: 25px; }
-li { margin-bottom: 12px; padding-inline-start: 5px; }
+li { margin-bottom: 12px; }
 .topbar { width: 100vw; background: white; border-bottom: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; direction: ltr !important; }
 .top-phone { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.1rem; }
 .lang-btn { padding: 8px 18px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: white; font-weight: 600; }
@@ -58,107 +37,78 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 .tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .grid-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 30px; }
-.box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; flex: 0 1 calc(33.333% - 22px); min-width: 280px; transition: 0.2s; border: 1px solid transparent; box-sizing: border-box; }
-.box:hover { border-color: var(--primary); transform: translateY(-3px); }
+.box { background: white; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; flex: 0 1 calc(33.333% - 22px); min-width: 280px; border: 1px solid transparent; box-sizing: border-box; }
 .box h3 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
-body.rtl { direction: rtl; }
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
 .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 @media (max-width: 900px) { .box { flex: 0 1 calc(50% - 22px); } }
 @media (max-width: 600px) { .box { flex: 1 1 100%; } }
 </style>
 </head>
-
-<body class="rtl">
-
+<body>
 <div class="topbar">
   <div class="lang-dropdown">
     <button class="lang-btn" onclick="toggleMenu()">HE ▾</button>
     <div class="lang-menu" id="lang-menu">
-      <button onclick="setLang('en')">English</button>
-      <button onclick="setLang('he')">עברית</button>
-      <button onclick="setLang('fr')">Français</button>
+      <button onclick="window.location.href='en.html'">English</button>
+      <button onclick="window.location.href='index.html'">עברית</button>
+      <button onclick="window.location.href='fr.html'">Français</button>
     </div>
   </div>
   <a href="tel:0533852030" class="top-phone">053-385-2030</a>
 </div>
-
 <header>
   <video autoplay muted loop playsinline><source src="video.mp4" type="video/mp4"></video>
-  <div class="header-content">
-    <h1 id="title"></h1>
-    <p class="subtitle" id="subtitle"></p>
-  </div>
+  <div class="header-content"><h1>ד״ר בנימין ריינשטיין</h1><p>מרפאת שיניים בירושלים</p></div>
 </header>
-
 <nav class="tabs-nav">
-  <button class="tab-link active" onclick="openTab(event, 'about-tab')" id="nav-about"></button>
-  <button class="tab-link" onclick="openTab(event, 'services-tab')" id="nav-services"></button>
-  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')" id="nav-emergencies"></button>
+  <button class="tab-link active" onclick="openTab(event, 'about-tab')">אודות המרפאה</button>
+  <button class="tab-link" onclick="openTab(event, 'services-tab')">שירותים</button>
+  <button class="tab-link" onclick="openTab(event, 'emergencies-tab')">עזרה ראשונה</button>
 </nav>
-
 <main class="container">
   <section id="about-tab" class="tab-content active">
-    <h2 id="about-clinic-title"></h2>
-    <div id="about-clinic-text"></div>
-    <div class="contact-section"></div>
+    <h2>אודות המרפאה</h2>
+    <p>במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל. אנו מתמחים בטיפולים משמרים, שיקומים, כירורגים והשתלות בעזרת ציוד חדיש לשיפור חוויית הטיפול והאסתטיקה של החיוך שלך.</p>
+    <p><b>אודות ד"ר בנימין ריינשטיין:</b></p>
+    <ul>
+      <li><b>ד"ר ריינשטיין</b> בוגר תואר DMD מהפקולטה לרפואת שיניים של <b>האוניברסיטה העברית והדסה עין-כרם</b>.</li>
+      <li>בוגר השתלמויות בשיקום הפה, טיפולי שורש מורכבים ועקירות כירורגיות מהמחלקות השונות לרפואת שיניים ב<b>מרכז הרפואי שיבא</b>.</li>
+      <li>חבר בעמותה הישראלית להשתלות דנטליות.</li>
+      <li>זוכה הצטיינות מפקד המרכז לשירותי רפואה של צה"ל על ניהול מרפאות צבאיות.</li>
+    </ul>
+    <h2>צור קשר</h2>
+    <p><b>טלפון:</b> 053-385-2030</p>
+    <p><b>אימייל:</b> BenjaminReinstein@gmail.com</p>
+    <h2>מיקום</h2>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.20455806655!2d35.21855907573523!3d31.78253167409477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d73307613587%3A0x679093844f23b7e2!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
   </section>
   <section id="services-tab" class="tab-content">
-    <h2 id="services-main-title"></h2>
-    <p id="services-main-intro"></p>
-    <div id="services-main-list" class="grid-list"></div>
-    <div class="contact-section"></div>
+    <h2>המרפאה שלנו מתמחה בטיפולים הבאים:</h2>
+    <div class="grid-list">
+      <div class="box"><h3>רפואת שיניים כללית</h3><p>בדיקות תקופתיות, ניקוי אבן וטיפולים משמרים.</p></div>
+      <div class="box"><h3>אסתטיקה דנטלית</h3><p>הלבנת שיניים, ציפויי חרסינה ושחזורים אסתטיים.</p></div>
+      <div class="box"><h3>השתלות שיניים</h3><p>שחזור שיניים חסרות באמצעות שתלים בשיטות מתקדמות.</p></div>
+      <div class="box"><h3>שיקום הפה</h3><p>כתרים, גשרים ותותבות המותאמים אישית.</p></div>
+      <div class="box"><h3>טיפולי שורש</h3><p>טיפולים מדויקים להצלת שיניים פגועות.</p></div>
+      <div class="box"><h3>טיפולי חניכיים</h3><p>מניעה וטיפול במחלות חניכיים לשמירה על יציבות השיניים.</p></div>
+      <div class="box"><h3>רפואת שיניים לילדים</h3><p>טיפולים באווירה סבלנית ורגועה המותאמים לילדים.</p></div>
+    </div>
   </section>
   <section id="emergencies-tab" class="tab-content">
-    <h2 id="emergency-intro-title"></h2>
-    <p id="emergency-intro-text"></p>
-    <div id="emergency-services-list" class="grid-list"></div>
-    <div class="contact-section"></div>
+    <h2>עזרה ראשונה דנטלית</h2>
+    <p>זקוקים לעזרה דחופה? אנו מספקים מענה מהיר לכאבים חריפים בשעות הערב ובסופי שבוע.</p>
+    <div class="grid-list">
+      <div class="box"><h3>כאבי שיניים</h3><p>טיפול מיידי להקלת כאב חד או פעימות בשן.</p></div>
+      <div class="box"><h3>שבר או נפילת שן</h3><p>טיפול חירום לאחר חבלה או נפילה.</p></div>
+      <div class="box"><h3>נפיחות וזיהום</h3><p>טיפול בזיהומים חריפים, דלקות ונפיחות.</p></div>
+      <div class="box"><h3>דימומים וחתכים</h3><p>עזרה ראשונה לפציעות ברקמות הרכות.</p></div>
+    </div>
   </section>
 </main>
-
-<footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">
-  <span id="footer-text"></span>
-</footer>
-
-<a href="#" id="whatsapp-btn" class="whatsapp-float" target="_blank" rel="noopener" onclick="trackWhatsApp()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
-
+<footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">© 2025 ד״ר בנימין ריינשטיין</footer>
+<a href="https://wa.me/972533852030?text=שלום, אשמח לקבוע תור בבקשה." class="whatsapp-float" target="_blank" onclick="trackWhatsApp()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
 <script>
-const MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.879793132717!2d35.218559!3d31.781111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7da69623145%3A0xe54226f30d075402!2sShamai%20St%2014%2C%20Jerusalem!5e0!3m2!1sen!2sil!4v1700000000000";
-
-const content = {
-  he: {
-    direction: "rtl",
-    title: "ד״ר בנימין ריינשטיין",
-    subtitle: "מרפאת שיניים בירושלים",
-    tabs: { about: "אודות המרפאה", services: "שירותים", emergency: "עזרה ראשונה" },
-    waMsg: "שלום, אשמח לקבוע תור בבקשה.",
-    aboutTitle: "אודות המרפאה",
-    aboutText: `במרפאה שלנו תיהנו מטיפולי שיניים מתקדמים באווירה רגועה, עם יחס אישי ודגש על נוחות המטופל.<br><br>אנו מתמחים בטיפולים משמרים, שיקומים, כירורגים והשתלות בעזרת ציוד חדיש.<br><br><b>אודות ד"ר בנימין ריינשטיין:</b><ul><li>בוגר <b>האוניברסיטה העברית והדסה עין-כרם</b>.</li><li>השתלמויות בשיקום הפה וטיפולים כירורגיים ב<b>מרכז הרפואי שיבא</b>.</li><li>חבר בעמותה הישראלית להשתלות דנטליות.</li></ul>`,
-    servicesIntro: "המרפאה שלנו מתמחה בטיפולים הבאים:",
-    services: [
-      { t: "רפואת שיניים כללית", d: "בדיקות תקופתיות וטיפולים משמרים." },
-      { t: "אסתטיקה דנטלית", d: "הלבנת שיניים וציפויי חרסינה." },
-      { t: "השתלות שיניים", d: "שחזור שיניים חסרות בשיטות מתקדמות." },
-      { t: "שיקום הפה", d: "כתרים, גשרים ותותבות." },
-      { t: "טיפולי שורש", d: "טיפולים מדויקים להצלת שיניים." },
-      { t: "טיפולי חניכיים", d: "מניעה וטיפול במחלות חניכיים." },
-      { t: "רפואת שיניים לילדים", d: "טיפולים באווירה רגועה לילדים." }
-    ],
-    emergencyTitle: "עזרה ראשונה דנטלית",
-    emergencyIntro: "זקוקים לעזרה דחופה? מענה מהיר לכאבים חריפים בשעות הערב ובסופי שבוע.",
-    emergencyList: [
-      { t: "כאבי שיניים", d: "טיפול מיידי להקלת כאב חד." },
-      { t: "שבר או נפילת שן", d: "טיפול חירום לאחר חבלה." },
-      { t: "נפיחות וזיהום", d: "טיפול בזיהומים חריפים ודלקות." },
-      { t: "דימומים וחתכים", d: "עזרה ראשונה לפציעות בפה." }
-    ],
-    contact: "צור קשר", phone: "טלפון:", email: "אימייל:", location: "מיקום", footer: "© 2025 ד״ר בנימין ריינשטיין"
-  }
-};
-
 function openTab(evt, tabId) {
   document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
   document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
@@ -166,40 +116,11 @@ function openTab(evt, tabId) {
   evt.currentTarget.classList.add("active");
   window.scrollTo(0, 300);
 }
-
 function toggleMenu() {
   const m = document.getElementById("lang-menu");
   m.style.display = (m.style.display === "block") ? "none" : "block";
 }
-
-function setLang(lang) {
-  if (lang === 'en') { window.location.href = 'en.html'; return; }
-  if (lang === 'fr') { window.location.href = 'fr.html'; return; }
-  
-  const c = content['he'];
-  document.body.className = "rtl";
-  document.getElementById("nav-about").innerText = c.tabs.about;
-  document.getElementById("nav-services").innerText = c.tabs.services;
-  document.getElementById("nav-emergencies").innerText = c.tabs.emergency;
-  document.getElementById("title").innerText = c.title;
-  document.getElementById("subtitle").innerText = c.subtitle;
-  document.getElementById("about-clinic-title").innerText = c.aboutTitle;
-  document.getElementById("about-clinic-text").innerHTML = c.aboutText;
-  document.getElementById("services-main-title").innerText = c.tabs.services;
-  document.getElementById("services-main-intro").innerText = c.servicesIntro;
-  document.getElementById("services-main-list").innerHTML = c.services.map(s => `<div class="box"><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
-  document.getElementById("emergency-intro-title").innerText = c.emergencyTitle;
-  document.getElementById("emergency-intro-text").innerText = c.emergencyIntro;
-  document.getElementById("emergency-services-list").innerHTML = c.emergencyList.map(s => `<div class="box"><h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
-  
-  const contactHTML = `<h2>${c.contact}</h2><p><strong>${c.phone}</strong> 053-385-2030</p><p><strong>${c.email}</strong> BenjaminReinstein@gmail.com</p><h2>${c.location}</h2><iframe width="100%" height="350" style="border:0;border-radius:14px;" src="${MAP_URL}" loading="lazy"></iframe>`;
-  document.querySelectorAll(".contact-section").forEach(sec => sec.innerHTML = contactHTML);
-  document.getElementById("footer-text").innerText = c.footer;
-  document.getElementById("whatsapp-btn").href = `https://wa.me/972533852030?text=${encodeURIComponent(c.waMsg)}`;
-}
-
 document.addEventListener("click", e => { if (!e.target.closest(".lang-dropdown")) document.getElementById("lang-menu").style.display = "none"; });
-setLang("he");
 </script>
 </body>
 </html>
