@@ -105,13 +105,15 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
   <section id="reviews-tab" class="tab-content">
     <div class="rating-header">
       <h2>מטופלים ממליצים</h2>
-
-    <div class="stars-container" style="display: inline-flex; direction: ltr; font-size: 1.5rem; line-height: 1;">
-      <span style="color: #fbbc04;">★★★★</span>
-      <span style="position: relative; display: inline-block; color: #ccc;">
-        ★
-      <span style="position: absolute; top: 0; left: 0; width: 90%; overflow: hidden; color: #fbbc04; white-space: nowrap;">★</span>
-      </span>
+      <div class="stars" style="
+      font-size: 24px; 
+      display: inline-block; 
+      background: linear-gradient(90deg, #fbbc04 90%, #ccc 90%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      letter-spacing: 2px;
+      font-family: Arial, sans-serif;">
+      ★★★★★
       </div>
       <p><b>דירוג כללי: 4.9 בגוגל</b></p>
     </div>
