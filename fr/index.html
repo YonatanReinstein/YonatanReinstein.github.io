@@ -32,8 +32,8 @@ header video { width: 100%; height: 100%; object-fit: cover; }
 header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
 .header-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; z-index: 2; width: 90%; }
 .header-content h1 { margin: 0; font-size: 2.3rem; }
-.tabs-nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; position: sticky; top: 0; z-index: 100; }
-.tab-link { padding: 20px 25px; cursor: pointer; border: none; background: none; font-size: 1.1rem; font-weight: 700; color: #666; transition: 0.3s; border-bottom: 4px solid transparent; }
+.tabs-nav { display: flex; justify-content: center; background: white; border-bottom: 2px solid #ddd; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+.tab-link { padding: 20px 15px; cursor: pointer; border: none; background: none; font-size: 1rem; font-weight: 700; color: #666; transition: 0.3s; border-bottom: 4px solid transparent; }
 .tab-link.active { color: var(--primary); border-bottom: 4px solid var(--primary); }
 .container { max-width: 1100px; margin: auto; padding: 30px 20px; }
 .tab-content { display: none; animation: fadeIn 0.4s ease; }
@@ -45,8 +45,13 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 9999; }
 .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 .footer-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; }
+.rating-header { text-align: center; margin-bottom: 30px; }
+.stars { color: #fbbc04; font-size: 1.5rem; }
+.review-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; border-left: 5px solid var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.review-name { font-weight: bold; display: block; margin-bottom: 5px; }
+.google-link { display: inline-block; margin-top: 20px; background: var(--primary); color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; }
 @media (max-width: 900px) { .box { flex: 0 1 calc(50% - 22px); } }
-@media (max-width: 600px) { .box { flex: 1 1 100%; } }
+@media (max-width: 600px) { .box { flex: 1 1 100%; } .tab-link { padding: 15px 10px; font-size: 0.9rem; } }
 </style>
 </head>
 <body>
@@ -68,6 +73,7 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
 <nav class="tabs-nav">
   <button id="btn-about-tab" class="tab-link active" onclick="openTab(event, 'about-tab')">À Propos</button>
   <button id="btn-services-tab" class="tab-link" onclick="openTab(event, 'services-tab')">Services</button>
+  <button id="btn-reviews-tab" class="tab-link" onclick="openTab(event, 'reviews-tab')">Témoignages</button>
   <button id="btn-emergencies-tab" class="tab-link" onclick="openTab(event, 'emergencies-tab')">Urgences</button>
 </nav>
 <main class="container">
@@ -82,6 +88,7 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <li>Récipiendaire du prix d'excellence des services médicaux de Tsahal pour la gestion de cliniques militaires.</li>
     </ul>
   </section>
+
   <section id="services-tab" class="tab-content">
     <h2>Nos Spécialités</h2>
     <div class="grid-list">
@@ -94,6 +101,41 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <div class="box"><h3>Dentisterie Pédiatrique</h3><p>Traitements dans une ambiance patiente et calme adaptée aux enfants.</p></div>
     </div>
   </section>
+
+  <section id="reviews-tab" class="tab-content">
+    <div class="rating-header">
+      <h2>Témoignages de Patients</h2>
+      <div class="stars">★★★★★</div>
+      <p><b>Note globale : 5.0 sur Google</b></p>
+    </div>
+    
+    <div class="review-card">
+      <span class="review-name">Yakir Ohayon</span>
+      <p>"Excellent dentiste, professionnel et très aimable. J'ai reçu le plus haut niveau de traitement, une attitude personnelle et accueillante. Je recommande vivement !"</p>
+    </div>
+    <div class="review-card">
+      <span class="review-name">Shani Levy</span>
+      <p>"Je suis arrivée avec une grande peur des dentistes et Benjamin m'a calmée dès le premier instant. Très doux et hautement professionnel. Une expérience correctrice !"</p>
+    </div>
+    <div class="review-card">
+      <span class="review-name">David G.</span>
+      <p>"La clinique est propre et agréable, l'équipement est moderne et le traitement était tout simplement parfait. Merci beaucoup Dr Reinstein."</p>
+    </div>
+
+    <center>
+      <a href="https://www.google.com/search?q=%D7%91%D7%A0%D7%99%D7%9E%D7%99%D7%9F+%D7%A8%D7%99%D7%99%D7%A0%D7%A9%D7%98%D7%99%D7%99%D7%9F#mpd=~14352191408480302673/customers/reviews" class="google-link" target="_blank">Voir tous les avis Google</a>
+    </center>
+
+    <div class="footer-info">
+      <hr>
+      <h2>Contactez-nous</h2>
+      <p><b>Téléphone:</b> 053-385-2030</p>
+      <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
+      <h2>Localisation</h2>
+      <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13568.04337227361!2d35.210433!3d31.770131!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d6f6e5e8e3%3A0x6d11f7c10729352e!2zZHIuIGJlbmphbWluIHJlaW5zdGVpbiAtIGRyei5pY28!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
+    </div>
+  </section>
+
   <section id="emergencies-tab" class="tab-content">
     <h2>Urgences Dentaires</h2>
     <p>Besoin d'une aide urgente ? Nous offrons une réponse rapide aux douleurs aiguës le soir et le week-end.</p>
@@ -104,20 +146,21 @@ header::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,
       <div class="box"><h3>Saignement</h3><p>Premiers soins pour les blessures aux tissus buccaux.</p></div>
     </div>
   </section>
-  <div class="footer-info">
+
+  <div class="footer-info" id="global-footer-info">
     <h2>Contactez-nous</h2>
     <p><b>Téléphone:</b> 053-385-2030</p>
     <p><b>Email:</b> BenjaminReinstein@gmail.com</p>
     <h2>Localisation</h2>
-    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.345842139162!2d35.215563!3d31.768319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQ2JzA2LjAiTiAzNcKwMTInNTYuMCJF!5e0!3m2!1sen!2sil!4v1700000000000!5m2!1sen!2sil" loading="lazy"></iframe>
+    <iframe width="100%" height="350" style="border:0;border-radius:14px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13568.04337227361!2d35.210433!3d31.770131!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d6f6e5e8e3%3A0x6d11f7c10729352e!2zZHIuIGJlbmphbWluIHJlaW5zdGVpbiAtIGRyei5pY28!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
   </div>
 </main>
 <footer style="background:#111;color:white;text-align:center;padding:25px; margin-top: 40px;">© 2025 Dr. Benjamin Reinstein</footer>
 <a href="https://wa.me/972533852030?text=Bonjour, j'aimerais prendre rendez-vous." class="whatsapp-float" target="_blank" onclick="trackWhatsApp()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
 
 <script>
-const tabMap = { 'about': 'about-tab', 'services': 'services-tab', 'emergency': 'emergencies-tab' };
-const reverseMap = { 'about-tab': 'about', 'services-tab': 'services', 'emergencies-tab': 'emergency' };
+const tabMap = { 'about': 'about-tab', 'services': 'services-tab', 'reviews': 'reviews-tab', 'emergency': 'emergencies-tab' };
+const reverseMap = { 'about-tab': 'about', 'services-tab': 'services', 'reviews-tab': 'reviews', 'emergencies-tab': 'emergency' };
 let currentTabId = 'about-tab';
 
 function openTab(evt, tabId, updateURL = true) {
@@ -126,6 +169,10 @@ function openTab(evt, tabId, updateURL = true) {
     const cleanName = reverseMap[tabId];
     history.pushState(null, null, '#' + cleanName);
   }
+  const globalInfo = document.getElementById('global-footer-info');
+  if(tabId === 'reviews-tab') { globalInfo.style.display = 'none'; } 
+  else { globalInfo.style.display = 'block'; }
+
   document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
   document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("active"));
   document.getElementById(tabId).classList.add("active");
